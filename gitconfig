@@ -4,19 +4,16 @@
 [branch]
 	autosetupmerge = true
 [url "jadzia.nextraweb.com:~/bare/"]
-    insteadOf = jadzia:
-    pushInsteadOf = jadzia:
+	insteadOf = jadzia:
+	pushInsteadOf = jadzia:
 [url "git@gitorious.org:/"]
-    insteadOf = gitorious:
-    pushInsteadOf = gitorious:
+	insteadOf = gitorious:
+	pushInsteadOf = gitorious:
 [url "git@github.com:"]
 	insteadOf = github:
 	pushInsteadOf = github:
-#origin	jadzia.nextraweb.com:~/bare/minecraft-skineditor (fetch)
-#origin	jadzia.nextraweb.com:~/bare/minecraft-skineditor (push)
 
-# additions from 
-# https://github.com/homeworkprod/dotfiles/blob/master/home/.gitconfig
+# from https://github.com/homeworkprod/dotfiles/blob/master/home/.gitconfig
 [core]
 	editor = vim
 	abbrev = 12
@@ -37,13 +34,13 @@
 [alias]
 	# 2012-01-17 from http://gitready.com/advanced/2011/10/21/ribbon-and-catchup-reading-new-commits.html
 	ribbon = tag --force _ribbon origin/master
-    catchup = log --patch --reverse --topo-order _ribbon..origin/master
-	# dont like to read the individual commits in topic branches that were, consider adding --first-parent -m to catchup
-	
+	catchup = log --patch --reverse --topo-order _ribbon..origin/master
+	# don’t like to read the individual commits in topic branches that were, consider adding --first-parent -m to catchup
+
 	# from http://weblog.latte.ca/blake/employment/mozilla/thunderbird/gitOutgoing.html see ~/bin/git-outgoing
 	out = outgoing
 
-	# from https://github.com/homeworkprod/dotfiles/blob/master/home/.gitconfig 
+	# from https://github.com/homeworkprod/dotfiles/blob/master/home/.gitconfig
 	br = branch
 	ci = commit
 	cm = commit -m
@@ -56,8 +53,9 @@
 	st = status
 	tree = log --graph --decorate --oneline --all
 
-	# 2014-04-03 http://blog.devzero.com/2014/04/02/useful-git-commands-summarizing-lots-of-log-entries/
+	# 2014-04-03 from http://blog.devzero.com/2014/04/02/useful-git-commands-summarizing-lots-of-log-entries/
 	graph = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset'
 
 [github]
 	user = johndrinkwater
+	password = ***

@@ -88,8 +88,6 @@ set foldmethod=syntax
 
 au FileType python set foldmethod=indent
 
-:source ~/.vim/plugin/minimap.vim
-
 " Transparent editing of gpg encrypted files.
 " By Wouter Hanegraaff
 augroup encrypted

@@ -3,8 +3,6 @@ set shiftwidth=4
 
 set softtabstop=4
 set tabstop=4
-"set foldmethod=marker
-"set foldmarker={,}
 
 " 2014-02 adding some sugar
 set listchars=tab:⇢ ,trail:⌁,eol:⌞,extends:↦,precedes:⌇,nbsp:⌅
@@ -91,31 +89,6 @@ set foldmethod=syntax
 au FileType python set foldmethod=indent
 
 :source ~/.vim/plugin/minimap.vim
-" for binary files
-" :source ~/.vim/plugins/hexman.vi
-" commented out 2010-11-05
-" augroup Binary
-"  au BufReadPre *.n50,*.n52 exe MGI source ~/.vim/plugins/hexman.vim
-"  au BufRead *.n50,*.n52 exe MGI "normal \\hm"
-"  au BufWritePre *.n50,*.n52 exe MGI "normal \\hm"
-"  au BufWritePost *.n50,*.n52 exe MGI "normal \\hm"
-
-" au BufRead  *.n50 call <Plug>HexManage
-"augroup END
-
-" vim -b : edit binary using xxd-format!
-"augroup Binary
-"  au!
-"  au BufReadPre  *.n50 let &bin=1
-"  au BufReadPost *.n50 if &bin | %!xxd
-"  au BufReadPost *.n50 set ft=xxd | endif
-"  au BufWritePre *.n50 if &bin | %!xxd -r
-"  au BufWritePre *.n50 endif
-"  au BufWritePost *.n50 if &bin | %!xxd
-"  au BufWritePost *.n50 set nomod | endif
-"augroup END
-
-
 
 " Transparent editing of gpg encrypted files.
 " By Wouter Hanegraaff

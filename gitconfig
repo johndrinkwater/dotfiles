@@ -1,6 +1,7 @@
 [user]
 	name = John Drinkwater
 	email = john@nextraweb.com
+	signingkey = 93D8CC73
 [branch]
 	autosetupmerge = true
 [url "jadzia.nextraweb.com:~/bare/"]

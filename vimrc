@@ -1,6 +1,13 @@
 set guifont=DejaVu\ Sans\ Mono\ 8
 set shiftwidth=4
 
+" 2014-06-29 added n for wrapping of №  lists
+set formatoptions=croqln
+
+"bah, need to get this working
+"comments=://,bn:>
+
+
 set softtabstop=4
 set tabstop=4
 

@@ -89,6 +89,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# 2014-07-01 Because OSX is ghetto and has shit utils
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -98,7 +101,15 @@ fi
 
 # 2010-09-09 johndrinkwater.name from http://log.damog.net/2008/12/two-git-tips/ &
 # others, see ~/Notes/Fedora/StandardChanges
-source /etc/bash_completion.d/git
+if [ -f /etc/bash_completion.d/git ]; then
+	source /etc/bash_completion.d/git
+fi
+
+# 2014-07-01 OSX doesn't have, so we sources from brew
+if [ -d /usr/local/etc/bash_completion.d ]; then
+	source /usr/local/etc/bash_completion.d/git-completion.bash
+	source /usr/local/etc/bash_completion.d/git-prompt.sh
+fi
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 GITPS1='$(__git_ps1 "git:%s")'

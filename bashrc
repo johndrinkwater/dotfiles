@@ -12,16 +12,8 @@ HISTCONTROL=ignoredups:ignorespace
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# 2012-03-12 MIGHT want to change above to stuff below from http://ss64.com/bash/shopt.html
-#histappend
-#    If set, the history list is appended to the history file when the shell exits,
-#    rather than overwriting the history file.
-#       shopt -s histappend
-#    To append every line to history individually set:
-#       PROMPT_COMMAND='history -a'
-#    With these two settings, a new shell will get the history lines from all previous
-#    shells instead of the default 'last window closed'>history
-#   (the history file is named by the value of the HISTFILE variable)
+# 2014-07-01 make sure to retain all history, because we have >1 shell from http://ss64.com/bash/shopt.html
+PROMPT_COMMAND='history -a'
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
@@ -81,9 +73,6 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -96,7 +85,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -115,8 +103,6 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 GITPS1='$(__git_ps1 "git:%s")'
 
-#export PS1="\e[0;32m\u\e[m@\h \w \e[0;36m${GITPS1}\e[m> "
-
 # 2011-02-10 http://stackoverflow.com/questions/4133904/ps1-line-with-git-current-branch-and-colors escape with []
 # 2013-09-08 s/>/❯/g
 export PS1="\[\e[0;32m\]\u\[\e[m\]@\h \w \[\e[0;36m\]${GITPS1}\[\e[m\]❯ "
@@ -124,10 +110,9 @@ export PS1="\[\e[0;32m\]\u\[\e[m\]@\h \w \[\e[0;36m\]${GITPS1}\[\e[m\]❯ "
 # vim is our <3
 export EDITOR="vim"
 
-# some more ls aliases
-#alias ll='ls -alF'
-#alias la='ls -A'
-#alias l='ls -CF'
+# 2014-07-01 let’s see if we use these
+alias la='ls -A'
+alias l='ls -CF'
 
 # 2009-01-27 johndrinkwater.name i’ve had ls have long-iso style for a while
 alias ll='ls -o --time-style=long-iso --color=tty'

@@ -19,8 +19,6 @@
 	editor = vim
 	abbrev = 12
 	autocrlf = input
-[diff]
-	tool = meld
 [difftool]
 	prompt = false
 [merge]

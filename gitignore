@@ -1,0 +1,8 @@
+# Please no, vim
+*~
+*.sw[op]
+.*.sw[op]
+
+# Fuck off OS X
+.DS_Store
+.DS_Store?

@@ -19,6 +19,9 @@
 	editor = vim
 	abbrev = 12
 	autocrlf = input
+	# 2014-10-15 add a global ignore file for DS_Store, etc
+	# luckily I already have vim not putting tmp files in PWD
+	excludesfile = ~/.gitignore
 [difftool]
 	prompt = false
 [merge]

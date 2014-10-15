@@ -137,3 +137,15 @@ alias cp='cp -i'
 # 2012-07-02 added for android
 export PATH=$PATH:$HOME/bin:$HOME/code/android-sdk/platform-tools:$HOME/code/android-sdk/tools
 
+# 2014-08-07 over a year later, putting these in bashrc…
+# yes Steam, really close to tray when I am done with you
+export STEAM_FRAME_FORCE_CLOSE=1
+# SDL2, stop minimising when I alt‐tab, I have multimon you know!
+export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+# SDL2, pick /this/ monitor as default please (not sure this works?)
+export SDL_VIDEO_FULLSCREEN_DISPLAY=1
+
+# 2014-08-07 My custom DS4 mapping (stop using share for start!)
+export SDL_GAMECONTROLLERCONFIG="030000004c050000c405000011010000,Sony DualShock 4,a:b1,b:b2,y:b3,x:b0,start:b9,guide:b12,leftstick:b10,rightstick:b11,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpleft:h0.8,dpdown:h0.4,dpright:h0.2,leftx:a0,lefty:a1,rightx:a2,righty:a5,lefttrigger:b6,righttrigger:b7,back:b13,"
+
+

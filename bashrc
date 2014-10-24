@@ -148,4 +148,5 @@ export SDL_VIDEO_FULLSCREEN_DISPLAY=1
 # 2014-08-07 My custom DS4 mapping (stop using share for start!)
 export SDL_GAMECONTROLLERCONFIG="030000004c050000c405000011010000,Sony DualShock 4,a:b1,b:b2,y:b3,x:b0,start:b9,guide:b12,leftstick:b10,rightstick:b11,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpleft:h0.8,dpdown:h0.4,dpright:h0.2,leftx:a0,lefty:a1,rightx:a2,righty:a5,lefttrigger:b6,righttrigger:b7,back:b13,"
 
-
+# 2014-10-24 finally put my custom tweaks into my own keymap
+setxkbmap -I ~/.xkb john

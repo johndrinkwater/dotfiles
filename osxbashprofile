@@ -1,0 +1,2 @@
+# 2014-07-01 OSX doesn't source ~/.bashrc, so do it here
+[[ -s ~/.bashrc ]] && source ~/.bashrc

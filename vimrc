@@ -7,6 +7,16 @@ set formatoptions=croqln
 "bah, need to get this working
 "comments=://,bn:>
 
+" 2015-04-04 trying to get Thanks for flying Vim out of my sight
+set titleold=
+if !has("gui_running")
+	if &term == "xterm" && &t_ts == ""
+		let &t_ts = "\e]2;"
+	endif
+	if &t_ts != ""
+		set title titlestring=%t%m\ -\ vim
+	endif
+endif
 
 set softtabstop=4
 set tabstop=4

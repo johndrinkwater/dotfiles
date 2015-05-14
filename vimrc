@@ -37,6 +37,22 @@ set t_Co=256
 " 2014-03-20 lighten comment text because in tilda I can’t read them
 :hi Comment ctermfg=Blue
 
+" 2015-05-14 colouring the gitgutter
+:hi FoldColumn guibg=darkgrey ctermbg=grey
+:hi SignColumn guibg=darkgrey ctermbg=grey guifg=white ctermfg=white
+:hi GitGutterAdd guibg=darkgrey ctermbg=darkgrey guifg=green ctermbg=green
+:hi GitGutterChange guibg=darkgrey ctermbg=darkgrey guifg=purple ctermbg=yellow " purple was great, for small char
+:hi GitGutterDelete guibg=darkgrey ctermbg=darkgrey guifg=red ctermbg=red
+:hi GitGutterChangeDelete guibg=darkgrey ctermbg=darkgrey guifg=red ctermbg=red
+
+" 2015-05-14 making the gitgutter diff more visible
+" 2043 257C
+let g:gitgutter_sign_added				= '++'
+let g:gitgutter_sign_removed			= '▒▒' " 2592
+let g:gitgutter_sign_removed_first_line	= '▒▒' " 2592
+let g:gitgutter_sign_modified			= '▒▒' " 2592
+let g:gitgutter_sign_modified_removed	= '▒▒' " 2592
+
 " 2014-03-20 http://jchain.github.io/blog/2013/07/17/fly-with-vim-airline/
 set laststatus=2
 set guifont=Inconsolata-dz\ for\ Powerline\ 8
@@ -64,6 +80,7 @@ let g:airline_mode_map = {
 
 " 2014-06-02 enabled gitgutter
 let g:gitgutter_sign_column_always = 1
+let g:gitgutter_override_sign_column_highlight = 0
 
 let g:airline_enable_branch     = 1
 let g:airline_enable_syntastic  = 1

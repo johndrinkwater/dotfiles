@@ -59,7 +59,7 @@
 	tree = log --graph --decorate --oneline --all
 
 	# 2014-04-03 from http://blog.devzero.com/2014/04/02/useful-git-commands-summarizing-lots-of-log-entries/
-	graph = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset'
+	graph = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)%an <%ae>%Creset'
 
 [github]
 	user = johndrinkwater

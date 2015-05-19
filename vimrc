@@ -82,15 +82,16 @@ let g:airline_mode_map = {
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
 
-let g:airline_enable_branch     = 1
-let g:airline_enable_syntastic  = 1
+let g:airline#extensions#branch#enabled    = 1
+let g:airline#extensions#syntastic#enabled = 1
 let g:airline_left_sep          = '⮀'
 let g:airline_left_alt_sep      = '⮁'
 let g:airline_right_sep         = '⮂'
 let g:airline_right_alt_sep     = '⮃'
-let g:airline_branch_prefix     = '⭠'
-let g:airline_readonly_symbol   = '⭤'
-let g:airline_linecolumn_prefix = '⭡'
+let g:airline_symbols = {}
+let g:airline_symbols.branch    = '⭠'
+let g:airline_symbols.readonly  = '⭤'
+let g:airline_symbols.linenr    = '⭡'
 
 "   airline_symbols       {'linenr': '⭡', 'paste': 'PASTE', 'readonly': '⭤', 'modified': '+', 'space': ' ', 'whitespace': '!', 'branch': '⭠'
 " 2014-03-24 time to get rid of .sw* tmp files

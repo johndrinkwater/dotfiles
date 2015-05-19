@@ -89,9 +89,6 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
-# 2014-07-01 Because OSX is ghetto and has shit utils
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -135,7 +132,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 
 # 2012-07-02 added for android
-export PATH=$PATH:$HOME/bin:$HOME/code/android-sdk/platform-tools:$HOME/code/android-sdk/tools
+export PATH="$PATH:$HOME/bin:$HOME/code/android-sdk/platform-tools:$HOME/code/android-sdk/tools"
 
 # 2014-08-07 over a year later, putting these in bashrc…
 # yes Steam, really close to tray when I am done with you
@@ -148,8 +145,23 @@ export SDL_VIDEO_FULLSCREEN_DISPLAY=1
 # 2014-08-07 My custom DS4 mapping (stop using share for start!)
 export SDL_GAMECONTROLLERCONFIG="030000004c050000c405000011010000,Sony DualShock 4,a:b1,b:b2,y:b3,x:b0,start:b9,guide:b12,leftstick:b10,rightstick:b11,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpleft:h0.8,dpdown:h0.4,dpright:h0.2,leftx:a0,lefty:a1,rightx:a2,righty:a5,lefttrigger:b6,righttrigger:b7,back:b13,"
 
-# 2014-10-24 finally put my custom tweaks into my own keymap
-setxkbmap -I ~/.xkb john
+case "$(uname -s)" in
 
-# 2015-05-19 on OSX, don't forget to set your `homebrew` token for github
-export HOMEBREW_GITHUB_API_TOKEN=
+	Darwin)
+	# 2015-05-19 on OSX, don't forget to set your `homebrew` token for github
+	export HOMEBREW_GITHUB_API_TOKEN=
+
+	# 2015-05-19 add homebrew to our PATH, for OSX
+	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
+	;;
+	Linux)
+	# 2014-10-24 finally put my custom tweaks into my own keymap
+	setxkbmap -I ~/.xkb john
+
+	;;
+	*)
+	echo "oops, unmatched platform"
+	;;
+esac
+

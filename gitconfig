@@ -45,6 +45,9 @@
 	# from http://weblog.latte.ca/blake/employment/mozilla/thunderbird/gitOutgoing.html see ~/bin/git-outgoing
 	out = outgoing
 
+	# from my head today, probably expense to run?
+	wdiff = diff --word-diff=color --word-diff-regex='[a-zA-Z]|[^[:space:]]'
+
 	# from https://github.com/homeworkprod/dotfiles/blob/master/home/.gitconfig
 	br = branch
 	ci = commit

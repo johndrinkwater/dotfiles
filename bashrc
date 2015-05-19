@@ -150,3 +150,6 @@ export SDL_GAMECONTROLLERCONFIG="030000004c050000c405000011010000,Sony DualShock
 
 # 2014-10-24 finally put my custom tweaks into my own keymap
 setxkbmap -I ~/.xkb john
+
+# 2015-05-19 on OSX, don't forget to set your `homebrew` token for github
+export HOMEBREW_GITHUB_API_TOKEN=

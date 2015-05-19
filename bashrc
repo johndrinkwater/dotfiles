@@ -153,6 +153,7 @@ case "$(uname -s)" in
 
 	# 2015-05-19 add homebrew to our PATH, for OSX
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 	;;
 	Linux)

@@ -155,6 +155,9 @@ case "$(uname -s)" in
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
+	# 2015-05-20 add find to PATH; hope I don't have to do this for each util
+	export PATH="/usr/local/opt/findutils/bin/:$PATH"
+
 	;;
 	Linux)
 	# 2014-10-24 finally put my custom tweaks into my own keymap

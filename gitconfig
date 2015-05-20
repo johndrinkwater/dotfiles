@@ -25,6 +25,8 @@
 	# 2015-04-16 warn in diffs with mixed indents, rogue spaces, etc
 	# thanks to adolson for making my diff output better! https://github.com/SteamDatabase/SteamLinux/pull/375
 	whitespace = trailing-space,space-before-tab,indent-with-non-tab
+	# 2015-05-20 Minified CS/JS are hell for diffs, make inline edits readable in term
+	pager = less -+S
 [difftool]
 	prompt = false
 [merge]

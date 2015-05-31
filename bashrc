@@ -160,6 +160,10 @@ case "$(uname -s)" in
 
 	# 2015-05-26 put usr local binaries before system ones to expose brew
 	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+	# 2015-05-30 expose php bins, like phpdoc
+	export PATH="$(brew --prefix php54)/bin:$PATH"
+
 	;;
 	Linux)
 	# 2014-10-24 finally put my custom tweaks into my own keymap

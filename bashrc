@@ -131,6 +131,9 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
+# 2015-06-07 Tell whomever thought listing /run, /dev/shm, /run/lock, /sys/fs/cgroup, /run/cmanager/fs, /run/user/%uid to go fuck themselves
+alias df='df -Hx tmpfs'
+
 # 2012-07-02 added for android
 export PATH="$PATH:$HOME/bin:$HOME/code/android-sdk/platform-tools:$HOME/code/android-sdk/tools"
 

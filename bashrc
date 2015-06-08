@@ -116,7 +116,8 @@ GITPS1='$(__git_ps1 "±:%s")'
 export PS1="\[\e[0;32m\]\u\[\e[m\]@\h \w \[\e[0;36m\]${GITPS1}\[\e[m\]❯ "
 
 # vim is our <3
-export EDITOR="vim"
+export EDITOR="/usr/bin/vim"
+export VISUAL="/usr/bin/vim"
 
 # 2014-07-01 let’s see if we use these
 alias la='ls -A'

@@ -70,6 +70,7 @@
 	user = johndrinkwater
 	password = ***
 [push]
+	# 2015-06-08 mental note, this was set to `matching` on joran, unified this now
 	default = simple
 [diff]
 	submodule = log

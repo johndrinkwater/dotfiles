@@ -95,8 +95,8 @@ let g:airline_symbols.linenr    = '⭡'
 
 "   airline_symbols       {'linenr': '⭡', 'paste': 'PASTE', 'readonly': '⭤', 'modified': '+', 'space': ' ', 'whitespace': '!', 'branch': '⭠'
 " 2014-03-24 time to get rid of .sw* tmp files
-set directory=~/.cache/vim,.,~/tmp,/tmp
-set backupdir=~/.cache/vim,.,~/tmp,/tmp
+set directory=~/settings/cache/vim,.,~/tmp,/tmp
+set backupdir=~/settings/cache/vim,.,~/tmp,/tmp
 " still need to set XDG stuffs in viminfo, runtimepath, MYVIMRC
 
 set hlsearch

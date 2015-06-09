@@ -1,3 +1,6 @@
+set nocompatible
+" 2015-06-09 because it chokes soo much
+
 set guifont=DejaVu\ Sans\ Mono\ 8
 set shiftwidth=4
 
@@ -103,6 +106,8 @@ set backupdir=~/settings/cache/vim,.,~/tmp,/tmp
 " VIM + VIMINIT set in our bash, do we need to touch runtimepath, MYVIMRC?
 let g:netrw_home='~/settings/cache/vim/'
 set viminfo='100,<50,s10,h,n~/settings/cache/vim/viminfo
+set runtimepath=~/settings/config/vim,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/addons,/usr/share/vim/vim74,/usr/share/vim/vimfiles,/usr/share/vim/addons/after,~/settings/config/vim/after
+
 
 set hlsearch
 set spelllang=en_gb

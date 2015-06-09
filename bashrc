@@ -190,3 +190,16 @@ case "$(uname -s)" in
 	;;
 esac
 
+# 2015-06-06 finally move our config and cache into nice locations
+# move this to the top once done
+export   XDG_DATA_HOME="$HOME/settings/data"
+export XDG_CONFIG_HOME="$HOME/settings/config"
+export  XDG_CACHE_HOME="$HOME/settings/cache"
+export  XDG_STATE_HOME="$HOME/settings/state"
+export XDG_RUNTIME_DIR="$HOME/settings/.runtime"
+export __GL_SHADER_DISK_CACHE_PATH="$HOME/settings/cache/nv"
+
+# 2015-06-09 Adjust our vim config into XDG locations
+export VIM="$XDG_CONFIG_HOME/vim"
+export VIMINIT=":so $XDG_CONFIG_HOME/vim/vimrc"
+ 

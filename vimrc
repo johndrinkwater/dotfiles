@@ -97,7 +97,9 @@ let g:airline_symbols.linenr    = '⭡'
 " 2014-03-24 time to get rid of .sw* tmp files
 set directory=~/settings/cache/vim,.,~/tmp,/tmp
 set backupdir=~/settings/cache/vim,.,~/tmp,/tmp
-" still need to set XDG stuffs in viminfo, runtimepath, MYVIMRC
+" VIM + VIMINIT set in our bash, do we need to touch runtimepath, MYVIMRC?
+let g:netrw_home='~/settings/cache/vim/'
+set viminfo='100,<50,s10,h,n~/settings/cache/vim/viminfo
 
 set hlsearch
 set spelllang=en_gb

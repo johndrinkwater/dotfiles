@@ -119,13 +119,12 @@ export PS1="\[\e[0;32m\]\u\[\e[m\]@\h \w \[\e[0;36m\]${GITPS1}\[\e[m\]❯ "
 export EDITOR="/usr/bin/vim"
 export VISUAL="/usr/bin/vim"
 
-# 2014-07-01 let’s see if we use these
-alias la='ls -A'
-alias l='ls -CF'
-
 # 2009-01-27 johndrinkwater.name i’ve had ls have long-iso style for a while
-alias ll='ls -o --time-style=long-iso --color=tty'
-alias ls='ls --time-style=long-iso --color=tty'
+# 2014-06-08 tweaked further, put dirs first, combine with above
+alias ll='ls -oF --si --time-style=long-iso --color=tty --group-directories-first'
+alias la='ls -oFA --si --time-style=long-iso --color=tty --group-directories-first'
+alias l='ls -CF --color=tty --group-directories-first'
+alias ls='ls -F --time-style=long-iso --color=tty --group-directories-first'
 
 # interactive destruction
 alias mv='mv -i'

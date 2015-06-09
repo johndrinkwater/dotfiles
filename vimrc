@@ -7,6 +7,9 @@ set formatoptions=croqln
 "bah, need to get this working
 "comments=://,bn:>
 
+" 2015-06-09 stop .netrwhist appearing
+let g:netrw_dirhistmax = 0
+
 " 2015-04-04 trying to get Thanks for flying Vim out of my sight
 set titleold=
 if !has("gui_running")

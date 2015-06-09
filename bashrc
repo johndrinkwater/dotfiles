@@ -20,6 +20,9 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 HISTTIMEFORMAT='%F %H:%M≀%S '
 
+# 2015-06-09 ask our pager not to make ~/.lesshst
+LESSHISTFILE=-
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize

@@ -202,4 +202,13 @@ export __GL_SHADER_DISK_CACHE_PATH="$HOME/settings/cache/nv"
 # 2015-06-09 Adjust our vim config into XDG locations
 export VIM="$XDG_CONFIG_HOME/vim"
 export VIMINIT=":so $XDG_CONFIG_HOME/vim/vimrc"
- 
+# X cruft
+export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
+# repo tools
+export SUBVERSION_HOME="$XDG_CONFIG_HOME/subversion"
+export BZRPATH="$XDG_CONFIG_HOME/bazaar"
+export BZR_PLUGIN_PATH="$XDG_DATA_HOME/bazaar"
+export BZR_HOME="$XDG_CACHE_HOME/bazaar"
+# crown jewels
+export GNUPGHOME="$HOME/settings/keys"
+

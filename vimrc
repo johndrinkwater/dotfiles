@@ -3,6 +3,10 @@ set nocompatible
 
 set guifont=DejaVu\ Sans\ Mono\ 8
 set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+syntax on
 
 " 2014-06-29 added n for wrapping of №  lists
 set formatoptions=croqln
@@ -26,9 +30,6 @@ if !has("gui_running")
 		set title titlestring=%t%m\ -\ vim
 	endif
 endif
-
-set softtabstop=4
-set tabstop=4
 
 " 2014-02 adding some sugar
 set listchars=tab:⇢ ,trail:⌁,eol:⌞,extends:↦,precedes:⌇,nbsp:⌅

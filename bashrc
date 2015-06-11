@@ -13,15 +13,16 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # 2014-07-01 make sure to retain all history, because we have >1 shell from http://ss64.com/bash/shopt.html
-PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND="history -a"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=10000
-HISTTIMEFORMAT='%F %H:%M≀%S '
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTTIMEFORMAT="%F %H:%M≀%S "
 
 # 2015-06-09 ask our pager not to make ~/.lesshst
-LESSHISTFILE=-
+export LESSHISTFILE="-"
+export LESS="-i -R"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -211,4 +212,6 @@ export BZR_PLUGIN_PATH="$XDG_DATA_HOME/bazaar"
 export BZR_HOME="$XDG_CACHE_HOME/bazaar"
 # crown jewels
 export GNUPGHOME="$HOME/settings/keys"
+
+export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
 

@@ -191,8 +191,11 @@ case "$(uname -s)" in
 	;;
 esac
 
-# 2015-06-06 finally move our config and cache into nice locations
-# move this to the top once done
+#2014-10-25 stop the overlay gtk message noise (note for commit, was in ~/.profile on joran??)
+export LIBOVERLAY_SCROLLBAR=0
+
+# 2015-06-06 move this into our bashrc once we have it up and working
+# we should put these at the top
 export   XDG_DATA_HOME="$HOME/settings/data"
 export XDG_CONFIG_HOME="$HOME/settings/config"
 export  XDG_CACHE_HOME="$HOME/settings/cache"
@@ -215,3 +218,16 @@ export GNUPGHOME="$HOME/settings/keys"
 
 export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
 
+# 2015-08-10 relocate our ssh config into our XDG location
+if [ -s "${XDG_CONFIG_HOME}/ssh/config" ]
+then
+	SSH_CONFIG="-F ${XDG_CONFIG_HOME}/ssh/config"
+	export GIT_SSH_COMMAND="ssh $SSH_CONFIG "
+	alias ssh="ssh $SSH_CONFIG"
+fi
+
+if [ -s "${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa" ]
+then
+	SSH_ID="-i ${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa"
+	alias ssh-copy-id="ssh-copy-id $SSH_ID"
+fi

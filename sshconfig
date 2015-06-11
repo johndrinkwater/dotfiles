@@ -1,7 +1,30 @@
+# 2015-08-11 Use %l for our Identity file, so our machimes can have their
+# keys stored (elsewhere ;P), it returns shortname, ie joran for my desktop.
+
+Host hg.mozilla.org
+	User <john@nextraweb.com>
+
 Host github.com
-User git
-Port 22
-Hostname github.com
-IdentityFile ~/.ssh/id_rsa.pub
-TCPKeepAlive yes
-IdentitiesOnly yes
+	User git
+	HostName github.com
+	PreferredAuthentications publickey
+	IdentityFile ~/settings/config/ssh/%l_github
+
+# We have a * here, because the HostName causes a reeval and otherwise would miss
+Host jadzia*
+	HostName jadzia.nextraweb.com
+	User john
+	ForwardX11 yes
+	ForwardX11Trusted yes
+	PreferredAuthentications publickey
+
+Host *
+	User john
+	Protocol 2
+	ForwardX11 no
+	ForwardX11Trusted no
+	IdentityFile ~/settings/config/ssh/%l_rsa
+	UserKnownHostsFile ~/settings/config/ssh/known_hosts
+	# if only this was possible, eh?
+	# AuthorizedKeysFile ~/settings/config/ssh/authorized_keys
+	VisualHostKey yes

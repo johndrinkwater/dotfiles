@@ -74,3 +74,6 @@
 	default = simple
 [diff]
 	submodule = log
+[filter "tabspace"]
+	smudge = unexpand --tabs=4 --first-only
+	clean = expand --tabs=4 --initial

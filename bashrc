@@ -205,6 +205,9 @@ export __GL_SHADER_DISK_CACHE_PATH="$HOME/settings/cache/nv"
 
 # 2015-06-09 Adjust our vim config into XDG locations
 export VIM="$XDG_CONFIG_HOME/vim"
+# 2015-06-17 setting $VIM kinda breaks things (syntax, gvim settings) and even though we set runtime
+# in vimrc, it will still look for $VIM/vim{version} to make VIMRUNTIME. You need to run
+# `ln -s /usr/share/vim/vim74 vim74` inside $XDG_CONFIG_HOME/vim for which version your vim is
 export VIMINIT=":so $XDG_CONFIG_HOME/vim/vimrc"
 # X cruft
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"

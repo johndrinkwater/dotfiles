@@ -1,16 +1,66 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# johndrinkwater.name bashrc; nothing special, hope it breaks nothing if you try it
+
+# 2015-06-06 configure our XDG locations (avoiding having .pam_environment as extra file, + .profile sources this)
+export   XDG_DATA_HOME="$HOME/settings/data"
+export XDG_CONFIG_HOME="$HOME/settings/config"
+export  XDG_CACHE_HOME="$HOME/settings/cache"
+export  XDG_STATE_HOME="$HOME/settings/state"
+export XDG_RUNTIME_DIR="$HOME/settings/.runtime"
+export __GL_SHADER_DISK_CACHE_PATH="$HOME/settings/cache/nv"
+
+# 2015-06-09 Adjust our vim config into XDG locations
+export VIM="$XDG_CONFIG_HOME/vim"
+# 2015-06-17 setting $VIM kinda breaks things (syntax, gvim settings) and even though we set runtime
+# in vimrc, it will still look for $VIM/vim{version} to make VIMRUNTIME. You need to run
+# `ln -s /usr/share/vim/vim74 vim74` inside $XDG_CONFIG_HOME/vim for which version your vim is
+export VIMINIT=":so $XDG_CONFIG_HOME/vim/vimrc"
+
+# X cruft
+export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
+
+# apps that are a pain in the butt
+export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
+
+# repo tools
+export SUBVERSION_HOME="$XDG_CONFIG_HOME/subversion"
+export BZRPATH="$XDG_CONFIG_HOME/bazaar"
+export BZR_PLUGIN_PATH="$XDG_DATA_HOME/bazaar"
+export BZR_HOME="$XDG_CACHE_HOME/bazaar"
+
+# crown jewels
+export GNUPGHOME="$HOME/settings/keys"
+
+# bash files
+export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
+
+# 2015-08-10 relocate our ssh config into our XDG location
+if [ -s "${XDG_CONFIG_HOME}/ssh/config" ]
+then
+	SSH_CONFIG="-F ${XDG_CONFIG_HOME}/ssh/config"
+	export GIT_SSH_COMMAND="ssh $SSH_CONFIG "
+	alias ssh="ssh $SSH_CONFIG"
+fi
+
+if [ -s "${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa" ]
+then
+	SSH_ID="-i ${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa"
+	alias ssh-copy-id="ssh-copy-id $SSH_ID"
+fi
+
+# 2014-08-07 over a year later, putting these in bashrc…
+# yes Steam, really close to tray when I am done with you
+export STEAM_FRAME_FORCE_CLOSE=1
+# SDL2, stop minimising when I alt‐tab, I have multimon you know!
+export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+# SDL2, pick /this/ monitor as default please (not sure this works?)
+export SDL_VIDEO_FULLSCREEN_DISPLAY=1
+
+# 2014-08-07 My custom DS4 mapping (stop using share for start!)
+export SDL_GAMECONTROLLERCONFIG="030000004c050000c405000011010000,Sony DualShock 4,a:b1,b:b2,y:b3,x:b0,start:b9,guide:b12,leftstick:b10,rightstick:b11,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpleft:h0.8,dpdown:h0.4,dpright:h0.2,leftx:a0,lefty:a1,rightx:a2,righty:a5,lefttrigger:b6,righttrigger:b7,back:b13,"
+
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoredups:ignorespace
-
-# append to the history file, don't overwrite it
-shopt -s histappend
 
 # 2014-07-01 make sure to retain all history, because we have >1 shell from http://ss64.com/bash/shopt.html
 export PROMPT_COMMAND="history -a"
@@ -19,6 +69,11 @@ export PROMPT_COMMAND="history -a"
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTTIMEFORMAT="%F %H:%M≀%S "
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoredups:ignorespace
+# append to the history file, don't overwrite it
+shopt -s histappend
 
 # 2015-06-09 ask our pager not to make ~/.lesshst
 export LESSHISTFILE="-"
@@ -130,18 +185,17 @@ export PS1="\[\e[0;32m\]\u\[\e[m\]@\h \w \[\e[0;36m\]${GITPS1}\[\e[m\]❯ "
 export EDITOR="/usr/bin/vim"
 export VISUAL="/usr/bin/vim"
 
+###### ALIASES
 # 2009-01-27 johndrinkwater.name i’ve had ls have long-iso style for a while
 # 2014-06-08 tweaked further, put dirs first, combine with above
 alias ll='ls -oF --si --time-style=long-iso --color=tty --group-directories-first'
 alias la='ls -oFA --si --time-style=long-iso --color=tty --group-directories-first'
 alias l='ls -CF --color=tty --group-directories-first'
 alias ls='ls -F --time-style=long-iso --color=tty --group-directories-first'
-
 # interactive destruction
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
-
 # 2015-06-07 Tell whomever thought listing /run, /dev/shm, /run/lock, /sys/fs/cgroup, /run/cmanager/fs, /run/user/%uid to go fuck themselves
 alias df='df -Hx tmpfs'
 # 2015-06-08 Do the same with mount, hide crap ~30 lines o crap
@@ -149,17 +203,6 @@ alias mount='mount -t notmpfs,nocgroup,nodebugfs,nomqueue,nopstore,nosecurityfs,
 
 # 2012-07-02 added for android
 export PATH="$PATH:$HOME/bin:$HOME/code/android-sdk/platform-tools:$HOME/code/android-sdk/tools"
-
-# 2014-08-07 over a year later, putting these in bashrc…
-# yes Steam, really close to tray when I am done with you
-export STEAM_FRAME_FORCE_CLOSE=1
-# SDL2, stop minimising when I alt‐tab, I have multimon you know!
-export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
-# SDL2, pick /this/ monitor as default please (not sure this works?)
-export SDL_VIDEO_FULLSCREEN_DISPLAY=1
-
-# 2014-08-07 My custom DS4 mapping (stop using share for start!)
-export SDL_GAMECONTROLLERCONFIG="030000004c050000c405000011010000,Sony DualShock 4,a:b1,b:b2,y:b3,x:b0,start:b9,guide:b12,leftstick:b10,rightstick:b11,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpleft:h0.8,dpdown:h0.4,dpright:h0.2,leftx:a0,lefty:a1,rightx:a2,righty:a5,lefttrigger:b6,righttrigger:b7,back:b13,"
 
 case "$(uname -s)" in
 
@@ -194,43 +237,3 @@ esac
 #2014-10-25 stop the overlay gtk message noise (note for commit, was in ~/.profile on joran??)
 export LIBOVERLAY_SCROLLBAR=0
 
-# 2015-06-06 move this into our bashrc once we have it up and working
-# we should put these at the top
-export   XDG_DATA_HOME="$HOME/settings/data"
-export XDG_CONFIG_HOME="$HOME/settings/config"
-export  XDG_CACHE_HOME="$HOME/settings/cache"
-export  XDG_STATE_HOME="$HOME/settings/state"
-export XDG_RUNTIME_DIR="$HOME/settings/.runtime"
-export __GL_SHADER_DISK_CACHE_PATH="$HOME/settings/cache/nv"
-
-# 2015-06-09 Adjust our vim config into XDG locations
-export VIM="$XDG_CONFIG_HOME/vim"
-# 2015-06-17 setting $VIM kinda breaks things (syntax, gvim settings) and even though we set runtime
-# in vimrc, it will still look for $VIM/vim{version} to make VIMRUNTIME. You need to run
-# `ln -s /usr/share/vim/vim74 vim74` inside $XDG_CONFIG_HOME/vim for which version your vim is
-export VIMINIT=":so $XDG_CONFIG_HOME/vim/vimrc"
-# X cruft
-export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
-# repo tools
-export SUBVERSION_HOME="$XDG_CONFIG_HOME/subversion"
-export BZRPATH="$XDG_CONFIG_HOME/bazaar"
-export BZR_PLUGIN_PATH="$XDG_DATA_HOME/bazaar"
-export BZR_HOME="$XDG_CACHE_HOME/bazaar"
-# crown jewels
-export GNUPGHOME="$HOME/settings/keys"
-
-export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
-
-# 2015-08-10 relocate our ssh config into our XDG location
-if [ -s "${XDG_CONFIG_HOME}/ssh/config" ]
-then
-	SSH_CONFIG="-F ${XDG_CONFIG_HOME}/ssh/config"
-	export GIT_SSH_COMMAND="ssh $SSH_CONFIG "
-	alias ssh="ssh $SSH_CONFIG"
-fi
-
-if [ -s "${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa" ]
-then
-	SSH_ID="-i ${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa"
-	alias ssh-copy-id="ssh-copy-id $SSH_ID"
-fi

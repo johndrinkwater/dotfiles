@@ -20,6 +20,7 @@ export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
 
 # apps that are a pain in the butt
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
+export LYNX_CFG="$XDG_CONFIG_HOME/lynx/config"
 
 # repo tools
 export SUBVERSION_HOME="$XDG_CONFIG_HOME/subversion"

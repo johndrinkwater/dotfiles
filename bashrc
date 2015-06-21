@@ -189,10 +189,10 @@ export VISUAL="/usr/bin/vim"
 ###### ALIASES
 # 2009-01-27 johndrinkwater.name i’ve had ls have long-iso style for a while
 # 2014-06-08 tweaked further, put dirs first, combine with above
-alias ll='ls -oF --si --time-style=long-iso --color=tty --group-directories-first'
-alias la='ls -oFA --si --time-style=long-iso --color=tty --group-directories-first'
-alias l='ls -CF --color=tty --group-directories-first'
 alias ls='ls -F --time-style=long-iso --color=tty --group-directories-first'
+alias ll='ls -o --si'
+alias la='ls -oA --si'
+alias l='ls -C'
 # interactive destruction
 alias mv='mv -i'
 alias rm='rm -i'

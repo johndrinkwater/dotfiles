@@ -37,6 +37,10 @@ set listchars=tab:⇢ ,trail:⌁,eol:⌞,extends:↦,precedes:⌇,nbsp:⌅
 noremap <F11> :set list!<CR>
 set cursorline
 
+" 2015-06-22 ^.^ ♥ finally, found that one thing that makes vim even better
+" set virtualedit=onemore " means I no longer get stuck on that off-by-one char at EOL.
+set virtualedit=all " but this means _instant party_
+
 " 2015-06-22 togglable whitespace warnings
 " basically this http://stackoverflow.com/questions/11269066/toggling-a-match-in-vimrc?lq=1
 hi HighlightRedundantSpaces term=standout ctermbg=Grey guibg=yellow

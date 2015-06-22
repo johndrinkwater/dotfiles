@@ -15,8 +15,8 @@ export VIM="${XDG_CONFIG_HOME}/vim"
 # `ln -s /usr/share/vim/vim74 vim74` inside ${XDG_CONFIG_HOME}/vim for which version your vim is
 export VIMINIT=":so ${XDG_CONFIG_HOME}/vim/vimrc"
 
-# X cruft
-export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
+# Runtime cruft
+export ICEAUTHORITY="${XDG_RUNTIME_DIR}/ICEauthority"
 
 # apps that are a pain in the butt
 export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp"

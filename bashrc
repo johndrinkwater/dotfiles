@@ -1,35 +1,35 @@
 # johndrinkwater.name bashrc; nothing special, hope it breaks nothing if you try it
 
 # 2015-06-06 configure our XDG locations (avoiding having .pam_environment as extra file, + .profile sources this)
-export   XDG_DATA_HOME="$HOME/settings/data"
-export XDG_CONFIG_HOME="$HOME/settings/config"
-export  XDG_CACHE_HOME="$HOME/settings/cache"
-export  XDG_STATE_HOME="$HOME/settings/state"
-export XDG_RUNTIME_DIR="$HOME/settings/.runtime"
-export __GL_SHADER_DISK_CACHE_PATH="$HOME/settings/cache/nv"
+export   XDG_DATA_HOME="${HOME}/settings/data"
+export XDG_CONFIG_HOME="${HOME}/settings/config"
+export  XDG_CACHE_HOME="${HOME}/settings/cache"
+export  XDG_STATE_HOME="${HOME}/settings/state"
+export XDG_RUNTIME_DIR="${HOME}/settings/.runtime"
+export __GL_SHADER_DISK_CACHE_PATH="${HOME}/settings/cache/nv"
 
 # 2015-06-09 Adjust our vim config into XDG locations
-export VIM="$XDG_CONFIG_HOME/vim"
-# 2015-06-17 setting $VIM kinda breaks things (syntax, gvim settings) and even though we set runtime
-# in vimrc, it will still look for $VIM/vim{version} to make VIMRUNTIME. You need to run
-# `ln -s /usr/share/vim/vim74 vim74` inside $XDG_CONFIG_HOME/vim for which version your vim is
-export VIMINIT=":so $XDG_CONFIG_HOME/vim/vimrc"
+export VIM="${XDG_CONFIG_HOME}/vim"
+# 2015-06-17 setting VIM kinda breaks things (syntax, gvim settings) and even though we set runtime
+# in vimrc, it will still look for VIM/vim{version} to make VIMRUNTIME. You need to run
+# `ln -s /usr/share/vim/vim74 vim74` inside ${XDG_CONFIG_HOME}/vim for which version your vim is
+export VIMINIT=":so ${XDG_CONFIG_HOME}/vim/vimrc"
 
 # X cruft
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
 
 # apps that are a pain in the butt
-export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
-export LYNX_CFG="$XDG_CONFIG_HOME/lynx/config"
+export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp"
+export LYNX_CFG="${XDG_CONFIG_HOME}/lynx/config"
 
 # repo tools
-export SUBVERSION_HOME="$XDG_CONFIG_HOME/subversion"
-export BZRPATH="$XDG_CONFIG_HOME/bazaar"
-export BZR_PLUGIN_PATH="$XDG_DATA_HOME/bazaar"
-export BZR_HOME="$XDG_CACHE_HOME/bazaar"
+export SUBVERSION_HOME="${XDG_CONFIG_HOME}/subversion"
+export BZRPATH="${XDG_CONFIG_HOME}/bazaar"
+export BZR_PLUGIN_PATH="${XDG_DATA_HOME}/bazaar"
+export BZR_HOME="${XDG_CACHE_HOME}/bazaar"
 
 # crown jewels
-export GNUPGHOME="$HOME/settings/keys"
+export GNUPGHOME="${HOME}/settings/keys"
 
 # bash files
 export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
@@ -38,14 +38,14 @@ export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
 if [ -s "${XDG_CONFIG_HOME}/ssh/config" ]
 then
 	SSH_CONFIG="-F ${XDG_CONFIG_HOME}/ssh/config"
-	export GIT_SSH_COMMAND="ssh $SSH_CONFIG "
-	alias ssh="ssh $SSH_CONFIG"
+	export GIT_SSH_COMMAND="ssh ${SSH_CONFIG} "
+	alias ssh="ssh ${SSH_CONFIG}"
 fi
 
 if [ -s "${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa" ]
 then
 	SSH_ID="-i ${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa"
-	alias ssh-copy-id="ssh-copy-id $SSH_ID"
+	alias ssh-copy-id="ssh-copy-id ${SSH_ID}"
 fi
 
 # 2014-08-07 over a year later, putting these in bashrc…
@@ -203,7 +203,7 @@ alias df='df -Hx tmpfs'
 alias mount='mount -t notmpfs,nocgroup,nodebugfs,nomqueue,nopstore,nosecurityfs,nohugetlbfs,nofusectl,nodevpts,nodevtmpfs,nofuse.gvfsd-fuse,noautofs,nosysfs,noproc'
 
 # 2012-07-02 added for android
-export PATH="$PATH:$HOME/bin:$HOME/code/android-sdk/platform-tools:$HOME/code/android-sdk/tools"
+export PATH="${PATH}:${HOME}/bin:${HOME}/code/android-sdk/platform-tools:${HOME}/code/android-sdk/tools"
 
 case "$(uname -s)" in
 
@@ -212,17 +212,17 @@ case "$(uname -s)" in
 	export HOMEBREW_GITHUB_API_TOKEN=
 
 	# 2015-05-19 add homebrew to our PATH, for OSX
-	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+	export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
+	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
 	# 2015-05-20 add find to PATH; hope I don't have to do this for each util
-	export PATH="/usr/local/opt/findutils/bin:$PATH"
+	export PATH="/usr/local/opt/findutils/bin:${PATH}"
 
 	# 2015-05-26 put usr local binaries before system ones to expose brew
-	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+	export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 
 	# 2015-05-30 expose php bins, like phpdoc
-	export PATH="$(brew --prefix php54)/bin:$PATH"
+	export PATH="$(brew --prefix php54)/bin:${PATH}"
 
 	;;
 	Linux)

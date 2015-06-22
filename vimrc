@@ -36,10 +36,24 @@ set listchars=tab:⇢ ,trail:⌁,eol:⌞,extends:↦,precedes:⌇,nbsp:⌅
 "set list
 noremap <F11> :set list!<CR>
 set cursorline
-"not sure about two lines below, yes these are problematic, but might be
-"distracting
-highlight RedundantSpaces term=standout ctermbg=Grey guibg=yellow
-call matchadd('RedundantSpaces', '\(\s\+$\| \+\ze\t\|\t\zs \+\)\(\%#\)\@!')
+
+" 2015-06-22 togglable whitespace warnings
+" basically this http://stackoverflow.com/questions/11269066/toggling-a-match-in-vimrc?lq=1
+hi HighlightRedundantSpaces term=standout ctermbg=Grey guibg=yellow
+hi link RedundantSpaces HighlightRedundantSpaces
+match RedundantSpaces '\(\s\+$\| \+\ze\t\|\t\zs \+\)\(\%#\)\@!'
+let s:togglewarnspaces = 1
+
+fun! ToggleRedundantSpaces()
+  if s:togglewarnspaces
+    hi link RedundantSpaces NONE
+    let s:togglewarnspaces = 0
+  else
+    hi link RedundantSpaces HighlightRedundantSpaces
+    let s:togglewarnspaces = 1
+  endif
+endfun
+noremap <F10> :call ToggleRedundantSpaces()<CR>
 
 " 2014-03-20 add colour terminal tweaks
 set t_Co=256

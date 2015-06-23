@@ -48,6 +48,9 @@ then
 	alias ssh-copy-id="ssh-copy-id ${SSH_ID}"
 fi
 
+# 2015-06-23 move our ~/.gdbinit to XDG location
+alias gdb="gdb -nh -x ~/settings/config/gdb/gdbinit"
+
 # 2014-08-07 over a year later, putting these in bashrc…
 # yes Steam, really close to tray when I am done with you
 export STEAM_FRAME_FORCE_CLOSE=1

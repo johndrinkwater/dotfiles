@@ -21,6 +21,7 @@ export ICEAUTHORITY="${XDG_RUNTIME_DIR}/ICEauthority"
 # apps that are a pain in the butt
 export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp"
 export LYNX_CFG="${XDG_CONFIG_HOME}/lynx/config"
+export DVDCSS_CACHE="${XDG_CONFIG_HOME}/dvdcss"
 
 # repo tools
 export SUBVERSION_HOME="${XDG_CONFIG_HOME}/subversion"
@@ -41,7 +42,6 @@ then
 	export GIT_SSH_COMMAND="ssh ${SSH_CONFIG} "
 	alias ssh="ssh ${SSH_CONFIG}"
 fi
-
 if [ -s "${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa" ]
 then
 	SSH_ID="-i ${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa"

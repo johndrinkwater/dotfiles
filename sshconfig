@@ -10,6 +10,11 @@ Host github.com
 	PreferredAuthentications publickey
 	IdentityFile ~/settings/config/ssh/%l_github
 
+Host marlamin.com
+	User git
+	PreferredAuthentications publickey
+	IdentityFile ~/settings/config/ssh/%l_marlamin
+
 # We have a * here, because the HostName causes a reeval and otherwise would miss
 Host jadzia*
 	HostName jadzia.nextraweb.com

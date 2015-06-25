@@ -6,7 +6,7 @@ export XDG_CONFIG_HOME="${HOME}/settings/config"
 export  XDG_CACHE_HOME="${HOME}/settings/cache"
 export  XDG_STATE_HOME="${HOME}/settings/state"
 export XDG_RUNTIME_DIR="${HOME}/settings/.runtime"
-export __GL_SHADER_DISK_CACHE_PATH="${HOME}/settings/cache/nv"
+export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 
 # 2015-06-09 Adjust our vim config into XDG locations
 export VIM="${XDG_CONFIG_HOME}/vim"

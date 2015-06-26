@@ -215,7 +215,8 @@ case "$(uname -s)" in
 	export HOMEBREW_GITHUB_API_TOKEN=
 
 	# 2015-05-19 add homebrew to our PATH, for OSX
-	export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
+	# brew --prefix coreutils
+	export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
 	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
 	# 2015-05-20 add find to PATH; hope I don't have to do this for each util
@@ -225,7 +226,8 @@ case "$(uname -s)" in
 	export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 
 	# 2015-05-30 expose php bins, like phpdoc
-	export PATH="$(brew --prefix php54)/bin:${PATH}"
+	# brew --prefix php54
+	export PATH="/usr/local/opt/php54/bin:${PATH}"
 
 	;;
 	Linux)

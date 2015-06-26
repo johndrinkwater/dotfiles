@@ -8,6 +8,9 @@ export  XDG_STATE_HOME="${HOME}/settings/state"
 export XDG_RUNTIME_DIR="${HOME}/settings/.runtime"
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 
+# Allow access to our home-local binary
+export PATH="${HOME}/bin:${PATH}"
+
 # 2015-06-26 remind our system we are British
 LANGUAGE=en_GB:en
 LANG=en_GB.UTF-8
@@ -211,7 +214,7 @@ alias df='df -Hx tmpfs'
 alias mount='mount -t notmpfs,nocgroup,nodebugfs,nomqueue,nopstore,nosecurityfs,nohugetlbfs,nofusectl,nodevpts,nodevtmpfs,nofuse.gvfsd-fuse,noautofs,nosysfs,noproc'
 
 # 2012-07-02 added for android
-export PATH="${PATH}:${HOME}/bin:${HOME}/code/android-sdk/platform-tools:${HOME}/code/android-sdk/tools"
+export PATH="${PATH}:${HOME}/code/android-sdk/platform-tools:${HOME}/code/android-sdk/tools"
 
 case "$(uname -s)" in
 

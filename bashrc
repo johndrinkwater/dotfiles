@@ -8,6 +8,10 @@ export  XDG_STATE_HOME="${HOME}/settings/state"
 export XDG_RUNTIME_DIR="${HOME}/settings/.runtime"
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 
+# 2015-06-26 remind our system we are British
+LANGUAGE=en_GB:en
+LANG=en_GB.UTF-8
+
 # 2015-06-09 Adjust our vim config into XDG locations
 export VIM="${XDG_CONFIG_HOME}/vim"
 # 2015-06-17 setting VIM kinda breaks things (syntax, gvim settings) and even though we set runtime

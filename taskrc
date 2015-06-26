@@ -13,6 +13,7 @@
 # Files
 data.location=~/tasks
 verbose=blank,footnote,label,new-id,affected,edit,special,project,sync
+weekstart=monday
 _forcecolor=yes
 
 # Color theme (uncomment one to use)

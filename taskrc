@@ -12,6 +12,7 @@
 
 # Files
 data.location=~/tasks
+verbose=blank,footnote,label,new-id,affected,edit,special,project,sync
 
 # Color theme (uncomment one to use)
 #include /usr/share/taskwarrior/light-16.theme

@@ -22,6 +22,7 @@ export ICEAUTHORITY="${XDG_RUNTIME_DIR}/ICEauthority"
 export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp"
 export LYNX_CFG="${XDG_CONFIG_HOME}/lynx/config"
 export DVDCSS_CACHE="${XDG_CONFIG_HOME}/dvdcss"
+export TASKRC="${XDG_CONFIG_HOME}/task/config"
 
 # repo tools
 export SUBVERSION_HOME="${XDG_CONFIG_HOME}/subversion"

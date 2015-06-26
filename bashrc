@@ -91,10 +91,6 @@ export LESS="-iFRSX"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -233,6 +229,11 @@ case "$(uname -s)" in
 
 	;;
 	Linux)
+
+	# If set, the pattern "**" used in a pathname expansion context will
+	# match all files and zero or more directories and subdirectories.
+	shopt -s globstar
+
 	# 2014-10-24 finally put my custom tweaks into my own keymap
 	setxkbmap -I ~/.xkb john
 

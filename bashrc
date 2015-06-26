@@ -49,6 +49,9 @@ then
 	alias ssh-copy-id="ssh-copy-id ${SSH_ID}"
 fi
 
+# 2015-06-26 for bootstrapping keyless new systems, have an alias
+alias sshfp="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
+
 # 2015-06-23 move our ~/.gdbinit to XDG location
 alias gdb="gdb -nh -x ~/settings/config/gdb/gdbinit"
 

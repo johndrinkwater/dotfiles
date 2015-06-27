@@ -212,6 +212,8 @@ alias cp='cp -i'
 alias df='df -Hx tmpfs'
 # 2015-06-08 Do the same with mount, hide crap ~30 lines o crap
 alias mount='mount -t notmpfs,nocgroup,nodebugfs,nomqueue,nopstore,nosecurityfs,nohugetlbfs,nofusectl,nodevpts,nodevtmpfs,nofuse.gvfsd-fuse,noautofs,nosysfs,noproc'
+# lazy fingers
+alias j='jobs'
 
 # 2012-07-02 added for android
 export PATH="${PATH}:${HOME}/code/android-sdk/platform-tools:${HOME}/code/android-sdk/tools"

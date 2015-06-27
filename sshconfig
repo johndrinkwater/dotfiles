@@ -7,17 +7,20 @@ Host hg.mozilla.org
 Host github.com
 	User git
 	HostName github.com
+	IdentitiesOnly yes
 	PreferredAuthentications publickey
 	IdentityFile ~/settings/config/ssh/%l_github
 
 Host marlamin.com
 	User git
+	IdentitiesOnly yes
 	PreferredAuthentications publickey
 	IdentityFile ~/settings/config/ssh/%l_marlamin
 
 # We have a * here, because the HostName causes a reeval and otherwise would miss
 Host jadzia*
 	HostName jadzia.nextraweb.com
+	IdentitiesOnly yes
 	User john
 	ForwardX11 yes
 	ForwardX11Trusted yes

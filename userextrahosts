@@ -1,0 +1,4 @@
+# This file mimics /etc/hosts with
+# 192.168.2.IP short-hostname fq.host.name
+#
+

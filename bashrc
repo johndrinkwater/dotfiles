@@ -64,7 +64,7 @@ SSH_AGENT="${SSH_HOME}/environment"
 function start_agent {
 	/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_AGENT}"
 	chmod 600 "${SSH_AGENT}"
-	. "${SSH_AGENT}" > /dev/null
+	source "${SSH_AGENT}" > /dev/null
 	# these two lines will prompt for passphrase in the first term after system restart
 	/usr/bin/ssh-add "${SSH_HOME}/${HOSTNAME}_rsa"
 	/usr/bin/ssh-add "${SSH_HOME}/${HOSTNAME}_github"
@@ -178,14 +178,14 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 if [ -f ~/settings/config/bash/aliases ]; then
-	. ~/settings/config/bash/aliases
+	source ~/settings/config/bash/aliases
 fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-	. /etc/bash_completion
+	source /etc/bash_completion
 fi
 
 # 2010-09-09 johndrinkwater.name from http://log.damog.net/2008/12/two-git-tips/ &
@@ -271,7 +271,7 @@ esac
 
 # 2015-06-29 ssh-agent block, run late
 if [ -f "${SSH_AGENT}" ]; then
-	. "${SSH_AGENT}" > /dev/null
+	source "${SSH_AGENT}" > /dev/null
 	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
 		start_agent;
 	}

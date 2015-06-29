@@ -46,18 +46,29 @@ export HOSTFILE="${XDG_CONFIG_HOME}/bash/extrahosts"
 # bash files
 export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
 
-# 2015-08-10 relocate our ssh config into our XDG location
-if [ -s "${XDG_CONFIG_HOME}/ssh/config" ]
+# 2015-06-10 relocate our ssh config into our XDG location
+SSH_HOME="${XDG_CONFIG_HOME}/ssh"
+if [ -s "${SSH_HOME}/config" ]
 then
-	SSH_CONFIG="-F ${XDG_CONFIG_HOME}/ssh/config"
+	SSH_CONFIG="-F ${SSH_HOME}/config"
 	export GIT_SSH_COMMAND="ssh ${SSH_CONFIG} "
 	alias ssh="ssh ${SSH_CONFIG}"
 fi
-if [ -s "${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa" ]
+if [ -s "${SSH_HOME}/${HOSTNAME}_rsa" ]
 then
-	SSH_ID="-i ${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa"
+	SSH_ID="-i ${SSH_HOME}/${HOSTNAME}_rsa"
 	alias ssh-copy-id="ssh-copy-id ${SSH_ID}"
 fi
+# 2015-06-29 provide a function to run our agent and hook common keys
+SSH_AGENT="${SSH_HOME}/environment"
+function start_agent {
+	/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_AGENT}"
+	chmod 600 "${SSH_AGENT}"
+	. "${SSH_AGENT}" > /dev/null
+	# these two lines will prompt for passphrase in the first term after system restart
+	/usr/bin/ssh-add "${SSH_HOME}/${HOSTNAME}_rsa"
+	/usr/bin/ssh-add "${SSH_HOME}/${HOSTNAME}_github"
+}
 
 # 2015-06-26 for bootstrapping keyless new systems, have an alias
 alias sshfp="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
@@ -257,6 +268,16 @@ case "$(uname -s)" in
 	echo "oops, unmatched platform"
 	;;
 esac
+
+# 2015-06-29 ssh-agent block, run late
+if [ -f "${SSH_AGENT}" ]; then
+	. "${SSH_AGENT}" > /dev/null
+	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+		start_agent;
+	}
+else
+	start_agent;
+fi
 
 #2014-10-25 stop the overlay gtk message noise (note for commit, was in ~/.profile on joran??)
 export LIBOVERLAY_SCROLLBAR=0

@@ -228,6 +228,9 @@ alias df='df -Hx tmpfs'
 alias mount='mount -t notmpfs,nocgroup,nodebugfs,nomqueue,nopstore,nosecurityfs,nohugetlbfs,nofusectl,nodevpts,nodevtmpfs,nofuse.gvfsd-fuse,noautofs,nosysfs,noproc'
 # lazy fingers
 alias j='jobs'
+# development shortcuts, would prefer python default, but steamlug.org has made php return :<
+# alias httpdhere="python -m SimpleHTTPServer"
+alias httpdhere="php -S localhost:4000 &"
 
 # 2012-07-02 added for android
 export PATH="${PATH}:${HOME}/code/android-sdk/platform-tools:${HOME}/code/android-sdk/tools"

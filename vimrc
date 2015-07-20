@@ -37,6 +37,10 @@ set listchars=tab:⇢ ,trail:⌁,eol:⌞,extends:↦,precedes:⌇,nbsp:⌅
 noremap <F11> :set list!<CR>
 set cursorline
 
+" 2015-07-20 toggle cursorline
+noremap <F9> :set cursorline!<CR>
+hi CursorLine term=standout cterm=NONE ctermfg=NONE ctermbg=233 gui=NONE guifg=NONE guibg=#eeeeee
+
 " 2015-06-22 ^.^ ♥ finally, found that one thing that makes vim even better
 " set virtualedit=onemore " means I no longer get stuck on that off-by-one char at EOL.
 set virtualedit=all " but this means _instant party_

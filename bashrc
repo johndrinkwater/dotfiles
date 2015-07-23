@@ -222,12 +222,15 @@ alias l='ls -C'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
+# 2015-07-21 always make all dirs
+alias mkdir='mkdir -p'
 # 2015-06-07 Tell whomever thought listing /run, /dev/shm, /run/lock, /sys/fs/cgroup, /run/cmanager/fs, /run/user/%uid to go fuck themselves
 alias df='df -Hx tmpfs'
 # 2015-06-08 Do the same with mount, hide crap ~30 lines o crap
 alias mount='mount -t notmpfs,nocgroup,nodebugfs,nomqueue,nopstore,nosecurityfs,nohugetlbfs,nofusectl,nodevpts,nodevtmpfs,nofuse.gvfsd-fuse,noautofs,nosysfs,noproc'
 # lazy fingers
 alias j='jobs'
+alias h='history'
 # development shortcuts, would prefer python default, but steamlug.org has made php return :<
 # alias httpdhere="python -m SimpleHTTPServer"
 alias httpdhere="php -S localhost:4000 &"

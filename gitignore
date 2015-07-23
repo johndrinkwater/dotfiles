@@ -1,3 +1,5 @@
+# .gitignore - List of filenames git should ignore
+
 # Please no, vim
 *~
 *.sw[op]
@@ -6,3 +8,7 @@
 # Fuck off OS X
 .DS_Store
 .DS_Store?
+
+# logfiles for local httpd instance
+httpd.err
+httpd.log

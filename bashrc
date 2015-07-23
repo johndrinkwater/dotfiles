@@ -231,6 +231,7 @@ alias j='jobs'
 # development shortcuts, would prefer python default, but steamlug.org has made php return :<
 # alias httpdhere="python -m SimpleHTTPServer"
 alias httpdhere="php -S localhost:4000 &"
+alias httpdhereheadless="php -S localhost:4000 > httpd.log 2> httpd.err < /dev/null &"
 
 # 2012-07-02 added for android
 export PATH="${PATH}:${HOME}/code/android-sdk/platform-tools:${HOME}/code/android-sdk/tools"

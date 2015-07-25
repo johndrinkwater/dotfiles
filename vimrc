@@ -6,6 +6,9 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
+" 2015-07-25 keep 3 lines away from our cursor onscreen at all times
+set scrolloff=3
+
 syntax on
 
 " 2014-06-29 added n for wrapping of №  lists

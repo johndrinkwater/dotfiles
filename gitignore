@@ -2,8 +2,20 @@
 
 # Please no, vim
 *~
-*.sw[op]
-.*.sw[op]
+*.sw[a-z]
+.*.sw[a-z]
+
+# Python
+*.pyc
+*.pyo
+
+# Misc build crap
+# TAGS
+GTAGS
+GRTAGS
+GSYMS
+GPATH
+ID
 
 # Fuck off OS X
 .DS_Store

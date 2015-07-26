@@ -19,9 +19,6 @@
 	editor = vim
 	abbrev = 12
 	autocrlf = input
-	# 2014-10-15 add a global ignore file for DS_Store, etc
-	# luckily I already have vim not putting tmp files in PWD
-	excludesfile = ~/settings/config/git/ignore
 	# 2015-04-16 warn in diffs with mixed indents, rogue spaces, etc
 	# thanks to adolson for making my diff output better! https://github.com/SteamDatabase/SteamLinux/pull/375
 	whitespace = trailing-space,space-before-tab,indent-with-non-tab

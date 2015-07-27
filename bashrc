@@ -91,9 +91,7 @@ export SDL_GAMECONTROLLERCONFIG="030000004c050000c405000011010000,Sony DualShock
 [ -z "$PS1" ] && return
 
 # 2015-07-27 list files to pass to apps (vlc)
-function lq {
-	ls -Q1 "$@" | tr "\n" " "
-}
+function lq { ls -Q1 "$@" | tr "\n" " " ; }
 
 # 2014-07-01 make sure to retain all history, because we have >1 shell from http://ss64.com/bash/shopt.html
 export PROMPT_COMMAND="history -a"

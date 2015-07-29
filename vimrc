@@ -135,7 +135,7 @@ set backupdir=~/settings/cache/vim,.,~/tmp,/tmp
 " VIM + VIMINIT set in our bash, do we need to touch runtimepath, MYVIMRC?
 let g:netrw_home='~/settings/cache/vim/'
 set viminfo='100,<50,s10,h,n~/settings/cache/vim/viminfo
-set runtimepath=~/settings/config/vim,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/addons,/usr/share/vim/vim74,/usr/share/vim/vimfiles,/usr/share/vim/addons/after,~/settings/config/vim/after
+set runtimepath=~/settings/config/vim,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/addons,/usr/share/vim/vimcurrent,/usr/share/vim/vimfiles,/usr/share/vim/addons/after,~/settings/config/vim/after
 
 
 set hlsearch

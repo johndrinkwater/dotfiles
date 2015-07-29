@@ -44,6 +44,17 @@ set cursorline
 noremap <F9> :set cursorline!<CR>
 hi CursorLine term=standout cterm=NONE ctermfg=NONE ctermbg=233 gui=NONE guifg=NONE guibg=#eeeeee
 
+" 2015-07-20 and make cursorline vanish for other windows
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
+" 2015-07-20 partially highlight overly long lines
+:set cc=+1,+2
+:hi ColorColumn ctermbg=233 guibg=#eeeeee
+
 " 2015-06-22 ^.^ ♥ finally, found that one thing that makes vim even better
 " set virtualedit=onemore " means I no longer get stuck on that off-by-one char at EOL.
 set virtualedit=all " but this means _instant party_

@@ -2,7 +2,7 @@
 # gnome-screenshot.orig -f "$HOME/Pictures/Screenshot from $(date '+%F %T').png" $@
 
 DESKTOP=`xdg-user-dir DESKTOP`
-# Pause slightly because wtf Linux http://unix.stackexchange.com/a/192757
+# Pause slightly because process tries to access kb http://unix.stackexchange.com/a/192757
 # sleep 1.0; commented out, for now
 scrot $@ -z "Screenshot.%Y-%m-%d.%H%M%S.png" -e "mv \$f ${DESKTOP}/"
 notify-send "Screenshot taken"

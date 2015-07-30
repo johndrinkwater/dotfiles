@@ -34,6 +34,16 @@ if !has("gui_running")
 	endif
 endif
 
+" 2015-07-30 pick a random colour scheme to start
+if has("gui_running")
+	set background=light
+	colorscheme default
+endif
+if !has("gui_running")
+	set background=dark
+	colorscheme slate
+endif
+
 " 2014-02 adding some sugar
 set listchars=tab:⇢ ,trail:⌁,eol:⌞,extends:↦,precedes:⌇,nbsp:⌅
 "set list
@@ -61,7 +71,7 @@ set virtualedit=all " but this means _instant party_
 
 " 2015-06-22 togglable whitespace warnings
 " basically this http://stackoverflow.com/questions/11269066/toggling-a-match-in-vimrc?lq=1
-hi HighlightRedundantSpaces term=standout ctermbg=Grey guibg=yellow
+hi HighlightRedundantSpaces term=standout ctermbg=234 guibg=yellow
 hi link RedundantSpaces HighlightRedundantSpaces
 match RedundantSpaces '\(\s\+$\| \+\ze\t\|\t\zs \+\)\(\%#\)\@!'
 let s:togglewarnspaces = 1

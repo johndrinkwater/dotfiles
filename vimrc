@@ -23,6 +23,9 @@ let g:netrw_dirhistmax = 0
 " 2015-06-09 resolve issues with backspace at times
 set backspace=start,eol,indent
 
+" 2015-08-02 because the default suggests the devs are monsters
+set nojoinspaces
+
 " 2015-04-04 trying to get Thanks for flying Vim out of my sight
 set titleold=
 if !has("gui_running")

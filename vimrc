@@ -26,6 +26,10 @@ set backspace=start,eol,indent
 " 2015-08-02 because the default suggests the devs are monsters
 set nojoinspaces
 
+" 2015-08-02 make our vim yank onto the system cut buffer (+)
+" TODO possibly move into the gui tested block + verify on OSX
+set clipboard=unnamedplus,exclude:cons\|linux
+
 " 2015-04-04 trying to get Thanks for flying Vim out of my sight
 set titleold=
 if !has("gui_running")

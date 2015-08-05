@@ -114,6 +114,11 @@ export LESS="-iFRSX"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# 2015-08-05 restrict terminal support for ^S so I stop accidentally breaking
+# irssi inside tmux
+stty -ixon
+stty stop undef
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 

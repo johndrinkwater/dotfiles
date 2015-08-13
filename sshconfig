@@ -19,9 +19,9 @@ Host marlamin.com
 
 # We have a * here, because the HostName causes a reeval and otherwise would miss
 Host jadzia*
+	User john
 	HostName jadzia.nextraweb.com
 	IdentitiesOnly yes
-	User john
 	ForwardX11 yes
 	ForwardX11Trusted yes
 	PreferredAuthentications publickey
@@ -32,6 +32,7 @@ Host *
 	ForwardX11 no
 	ForwardX11Trusted no
 	IdentityFile ~/settings/config/ssh/%l_rsa
+	IdentitiesOnly yes
 	UserKnownHostsFile ~/settings/config/ssh/known_hosts
 	# if only this was possible, eh?
 	# AuthorizedKeysFile ~/settings/config/ssh/authorized_keys

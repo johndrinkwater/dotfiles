@@ -16,7 +16,6 @@
 
 # from https://github.com/homeworkprod/dotfiles/blob/master/home/.gitconfig
 [core]
-	editor = vim
 	abbrev = 12
 	autocrlf = input
 	# 2015-04-16 warn in diffs with mixed indents, rogue spaces, etc

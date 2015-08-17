@@ -246,6 +246,14 @@ alias httpdhereheadless="php -S localhost:4000 > httpd.log 2> httpd.err < /dev/n
 # 2012-07-02 added for android
 export PATH="${PATH}:${HOME}/code/android-sdk/platform-tools:${HOME}/code/android-sdk/tools"
 
+# 2015-08-17 wanting to make `script` output cleaner, so unset EDITOR
+if [ $SHLVL -gt 1 ]; then
+	if lsof -tac script "$(tty)" > /dev/null; then
+		unset EDITOR
+		unset VISUAL
+	fi
+fi
+
 case "$(uname -s)" in
 
 	Darwin)

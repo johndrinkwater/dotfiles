@@ -44,7 +44,7 @@
 	out = outgoing
 
 	# from my head today, probably expense to run?
-	wdiff = diff --word-diff=color --word-diff-regex='[a-zA-Z]|[^[:space:]]'
+	wdiff = diff --word-diff=color --word-diff-regex='[[:alnum:]]+|[^[:space:]]'
 
 	# from https://github.com/homeworkprod/dotfiles/blob/master/home/.gitconfig
 	br = branch

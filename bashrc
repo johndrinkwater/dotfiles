@@ -231,6 +231,7 @@ alias l='ls -C'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
+alias crontab='crontab -i'
 # 2015-07-21 always make all dirs
 alias mkdir='mkdir -p'
 # 2015-06-07 Remove redundant /run, /dev/shm, /run/lock, /sys/fs/cgroup, /run/cmanager/fs, /run/user/%uid from df listing

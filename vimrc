@@ -182,7 +182,9 @@ else
 	set foldlevel=3
 endif
 
-filetype plugin on
+" 2015-08-24 disabled, as it kept setting tabstop for python to absurd values
+"filetype plugin on
+filetype indent off
 
 syn region cBlock start=,{, end=,}, transparent fold
 syn region cComm start=,/\*, end=,\*/, transparent fold keepend

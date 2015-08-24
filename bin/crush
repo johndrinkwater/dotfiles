@@ -1,0 +1,14 @@
+#!/bin/sh
+# Because typing, and we want to enforce a regular output name
+
+# Output should be where we run it, rather than in absolute ref dir
+# To change that behaviour, change line 2+3 filename with @, and remove line 1
+basename=$(basename "$@")
+extension="${basename##*.}"
+filename="${basename%.*}"
+# TODO, check extension is png before making newfile, otherwise back up and append
+newfile="${filename}.crushed.png"
+
+# We strip bKGD to save a few bytes, and honestly, it is pointless for our needs
+# however, pHYs could be trimmed, but we leave it as with variable DPI nowadays, encourage correct presentation
+pngcrush -quiet -rem bKGD -reduce -brute $basename $newfile

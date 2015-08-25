@@ -183,7 +183,8 @@ else
 endif
 
 " 2015-08-24 disabled, as it kept setting tabstop for python to absurd values
-"filetype plugin on
+" we need to play with this more, as the does help for COMMIT_MSG, and other things
+filetype plugin on
 filetype indent off
 
 syn region cBlock start=,{, end=,}, transparent fold

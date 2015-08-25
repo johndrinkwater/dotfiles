@@ -55,7 +55,7 @@ endif
 " 2014-02 adding some sugar
 set listchars=tab:⇢ ,trail:⌁,eol:⌞,extends:↦,precedes:⌇,nbsp:⌅
 "set list
-noremap <F11> :set list!<CR>
+noremap <F12> :set list!<CR>
 set cursorline
 
 " 2015-07-20 toggle cursorline

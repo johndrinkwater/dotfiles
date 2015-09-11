@@ -1,0 +1,8 @@
+@binding-set firefox
+{
+	unbind "<ctrl>k";
+}
+
+GtkEntry {
+	gtk-key-bindings: firefox;
+}

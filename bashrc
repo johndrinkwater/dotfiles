@@ -29,6 +29,7 @@ export ICEAUTHORITY="${XDG_RUNTIME_DIR}/ICEauthority"
 
 # apps that are a pain in the butt
 export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp"
+export MPLAYER_HOME="${XDG_CONFIG_HOME}/mplayer"
 export LYNX_CFG="${XDG_CONFIG_HOME}/lynx/config"
 export DVDCSS_CACHE="${XDG_CONFIG_HOME}/dvdcss"
 export TASKRC="${XDG_CONFIG_HOME}/task/config"

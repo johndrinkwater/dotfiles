@@ -1,8 +1,11 @@
 #!/bin/sh
 # gnome-screenshot.orig -f "$HOME/Pictures/Screenshot from $(date '+%F %T').png" $@
 
+# this needs to support -w (window) and -a (area) that scrot does, atm it just
+# does the default whole desktop
+
 DESKTOP=`xdg-user-dir DESKTOP`
 # Pause slightly because process tries to access kb http://unix.stackexchange.com/a/192757
 # sleep 1.0; commented out, for now
-scrot $@ -z "Screenshot.%Y-%m-%d.%H%M%S.png" -e "mv \$f ${DESKTOP}/"
+sleep 0.5; scrot $@ -z "Screenshot.%Y-%m-%d.%H%M%S.png" -e "mv \$f ${DESKTOP}/"
 notify-send "Screenshot taken"

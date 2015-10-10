@@ -168,6 +168,7 @@ set runtimepath=~/settings/config/vim,/etc/vim,/usr/share/vim/vimfiles,/usr/shar
 
 
 set hlsearch
+set incsearch
 set spelllang=en_gb
 
 " 2014-06-02 added foldlevel to the block below

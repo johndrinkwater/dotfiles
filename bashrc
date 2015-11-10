@@ -26,6 +26,8 @@ export VIMINIT=":so ${XDG_CONFIG_HOME}/vim/vimrc"
 
 # Runtime cruft
 export ICEAUTHORITY="${XDG_RUNTIME_DIR}/ICEauthority"
+# 2015-06-24 too late to avoid ~/.xsession-errors, so we edit /etc/X11/Xsession:61 to be
+# ERRFILE=$HOME/settings/cache/xsession-errors
 
 # apps that are a pain in the butt
 export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp"

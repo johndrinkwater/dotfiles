@@ -49,6 +49,7 @@ if has("gui_running")
 endif
 if !has("gui_running")
 	set background=dark
+	" 2015-08-24 TODO osx does not have slate, find replacement :(
 	colorscheme slate
 endif
 

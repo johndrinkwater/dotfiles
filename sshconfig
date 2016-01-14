@@ -33,6 +33,7 @@ Host *
 	ForwardX11Trusted no
 	IdentityFile ~/settings/config/ssh/%l_rsa
 	IdentitiesOnly yes
+	UseRoaming no
 	UserKnownHostsFile ~/settings/config/ssh/known_hosts
 	# if only this was possible, eh?
 	# AuthorizedKeysFile ~/settings/config/ssh/authorized_keys

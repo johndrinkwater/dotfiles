@@ -213,6 +213,7 @@ if [ -d /usr/local/etc/bash_completion.d ]; then
 fi
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
+# 2009-01-20 from http://log.damog.net/2008/12/two-git-tips
 GITPS1='$(__git_ps1 "±:%s")'
 
 # 2011-02-10 http://stackoverflow.com/questions/4133904/ps1-line-with-git-current-branch-and-colors escape with []

@@ -38,9 +38,7 @@ export TASKRC="${XDG_CONFIG_HOME}/task/config"
 
 # repo tools
 export SUBVERSION_HOME="${XDG_CONFIG_HOME}/subversion"
-export BZRPATH="${XDG_CONFIG_HOME}/bazaar"
-export BZR_PLUGIN_PATH="${XDG_DATA_HOME}/bazaar"
-export BZR_HOME="${XDG_CACHE_HOME}/bazaar"
+export BZR_LOG="${XDG_CACHE_HOME}/bazaar/log"
 
 # crown jewels
 export GNUPGHOME="${HOME}/settings/keys"

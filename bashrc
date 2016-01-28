@@ -228,6 +228,7 @@ export VISUAL="/usr/bin/vim"
 alias ls='ls -F --time-style=long-iso --color=tty --group-directories-first'
 alias ll='ls -o --si'
 alias la='ls -oA --si'
+alias lal='la -L'
 alias l='ls -C'
 # interactive destruction
 alias mv='mv -i'

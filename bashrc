@@ -79,6 +79,9 @@ alias sshfp="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no
 # 2015-06-23 move our ~/.gdbinit to XDG location
 alias gdb="gdb -nh -x ~/settings/config/gdb/gdbinit"
 
+# 2016-01-31 move our ~/.java to a XDG location (or rather attempt)
+alias java="java -Duser.home=\"${XDG_DATA_HOME}/openjdk\""
+
 # 2014-08-07 over a year later, putting these in bashrc…
 # yes Steam, really close to tray when I am done with you
 export STEAM_FRAME_FORCE_CLOSE=1

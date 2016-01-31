@@ -160,8 +160,11 @@ let g:airline_symbols.linenr    = '⭡'
 
 "   airline_symbols       {'linenr': '⭡', 'paste': 'PASTE', 'readonly': '⭤', 'modified': '+', 'space': ' ', 'whitespace': '!', 'branch': '⭠'
 " 2014-03-24 time to get rid of .sw* tmp files
-set directory=~/settings/cache/vim,.,~/tmp,/tmp
-set backupdir=~/settings/cache/vim,.,~/tmp,/tmp
+set directory=~/settings/cache/vim,.,/tmp
+set backupdir=~/settings/cache/vim,.,/tmp
+set nobackup       " no backup files
+" set noswapfile     " use swap files
+
 " VIM + VIMINIT set in our bash, do we need to touch runtimepath, MYVIMRC?
 let g:netrw_home='~/settings/cache/vim/'
 set viminfo='100,<50,s10,h,n~/settings/cache/vim/viminfo

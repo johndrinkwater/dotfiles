@@ -50,6 +50,10 @@ export HOSTFILE="${XDG_CONFIG_HOME}/bash/extrahosts"
 # bash files
 export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
 
+# 2016-01-02 attempt to restore unicode composition via ctrl+shift+u
+unset GTK_IM_MODULE
+unset QT4_IM_MODULE
+
 # 2015-06-10 relocate our ssh config into our XDG location
 SSH_HOME="${XDG_CONFIG_HOME}/ssh"
 if [ -s "${SSH_HOME}/config" ]

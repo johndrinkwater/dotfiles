@@ -42,6 +42,7 @@ export BZR_LOG="${XDG_CACHE_HOME}/bazaar/log"
 
 # crown jewels
 export GNUPGHOME="${HOME}/settings/keys"
+export PASSWORD_STORE_DIR="${HOME}/settings/pass"
 
 # let us try some user-based hostname config
 export HOSTFILE="${XDG_CONFIG_HOME}/bash/extrahosts"

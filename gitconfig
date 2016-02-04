@@ -70,6 +70,10 @@
 [push]
 	# 2015-06-08 mental note, this was set to `matching` on joran, unified this now
 	default = simple
+# 2016-02-04 added fsckobjects https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
+[transfer]
+	fsckObjects = true
+
 [diff]
 	submodule = log
 [filter "tabspace"]

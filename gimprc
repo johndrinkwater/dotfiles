@@ -1,0 +1,11 @@
+# 2016-02-26 misc additions to make GIMP nicer
+
+# gimp wants to write thumbnails to ~/.thumbnails/ so stop it
+(thumbnail-size none)
+
+# Show the currently selected brush, pattern and gradient in the toolbox
+(toolbox-foo-area yes)
+
+# avoid hitting ’net to show current‐version manual
+(user-manual-online no)
+

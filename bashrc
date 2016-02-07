@@ -310,7 +310,7 @@ esac
 # 2015-06-29 ssh-agent block, run late
 if [ -s "${SSH_AGENT}" ]; then
 	source "${SSH_AGENT}" > /dev/null
-	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+	ps -o pid= -p ${SSH_AGENT_PID} > /dev/null || {
 		start_agent;
 	}
 else

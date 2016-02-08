@@ -247,8 +247,10 @@ alias crontab='crontab -i'
 alias mkdir='mkdir -p'
 # 2015-06-07 Remove redundant /run, /dev/shm, /run/lock, /sys/fs/cgroup, /run/cmanager/fs, /run/user/%uid from df listing
 alias df='df -Hx tmpfs'
-# 2015-06-08 Do the same with mount, hide crap ~30 lines o crap
+# 2015-06-08 Do the same with mount, hide ~30 lines o crap
 alias mount='mount -t notmpfs,nocgroup,nodebugfs,nomqueue,nopstore,nosecurityfs,nohugetlbfs,nofusectl,nodevpts,nodevtmpfs,nofuse.gvfsd-fuse,noautofs,nosysfs,noproc'
+# 2016-02-08 … and prevent spurious warnings from lsof due to gvfs + tracefs (RUNTIME for sudo, tracing for user)
+alias lsof='lsof -e $XDG_RUNTIME_DIR/gvfs -e /sys/kernel/debug/tracing'
 # lazy fingers
 alias j='jobs'
 alias h='history'

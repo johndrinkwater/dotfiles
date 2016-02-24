@@ -50,6 +50,9 @@ export HOSTFILE="${XDG_CONFIG_HOME}/bash/extrahosts"
 # bash files
 export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
 
+# 2016-02-24 Tell Python politely to not make ~/.python_history by… monkey patching that code out
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/python_history"
+
 # 2016-01-02 attempt to restore unicode composition via ctrl+shift+u
 unset GTK_IM_MODULE
 unset QT4_IM_MODULE

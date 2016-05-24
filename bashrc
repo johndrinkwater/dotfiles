@@ -249,7 +249,8 @@ alias crontab='crontab -i'
 # 2015-07-21 always make all dirs
 alias mkdir='mkdir -p'
 # 2015-06-07 Remove redundant /run, /dev/shm, /run/lock, /sys/fs/cgroup, /run/cmanager/fs, /run/user/%uid from df listing
-alias df='df -Hx tmpfs'
+# 2016-05-24 /dev is apparently devtmpfs, even though `stat -f /dev` returns… tmpfs https://bugs.launchpad.net/ubuntu/+source/coreutils/+bug/1219529
+alias df='df -Hx tmpfs -x devtmpfs'
 # 2015-06-08 Do the same with mount, hide ~30 lines o crap
 alias mount='mount -t notmpfs,nocgroup,nodebugfs,nomqueue,nopstore,nosecurityfs,nohugetlbfs,nofusectl,nodevpts,nodevtmpfs,nofuse.gvfsd-fuse,noautofs,nosysfs,noproc'
 # 2016-02-08 … and prevent spurious warnings from lsof due to gvfs + tracefs (RUNTIME for sudo, tracing for user)

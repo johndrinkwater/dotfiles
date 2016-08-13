@@ -35,6 +35,7 @@ export MPLAYER_HOME="${XDG_CONFIG_HOME}/mplayer"
 export LYNX_CFG="${XDG_CONFIG_HOME}/lynx/config"
 export DVDCSS_CACHE="${XDG_CONFIG_HOME}/dvdcss"
 export TASKRC="${XDG_CONFIG_HOME}/task/config"
+export WINEPREFIX="${XDG_DATA_HOME}/wine"
 
 # repo tools
 export SUBVERSION_HOME="${XDG_CONFIG_HOME}/subversion"

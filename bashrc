@@ -239,7 +239,8 @@ export VISUAL="/usr/bin/vim"
 ###### ALIASES
 # 2009-01-27 johndrinkwater.name i’ve had ls have long-iso style for a while
 # 2014-06-08 tweaked further, put dirs first, combine with above
-alias ls='ls -F --time-style=long-iso --color=tty --group-directories-first'
+# 2018-10-09 emit full multibyte characters to the terminal; could break some scripts, but prefer uniform output between ls + ls |
+alias ls='ls -F --time-style=long-iso --color=tty --group-directories-first --show-control-chars'
 alias ll='ls -o --si'
 alias la='ls -oA --si'
 alias lal='la -L'

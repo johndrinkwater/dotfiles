@@ -7,6 +7,8 @@ export  XDG_CACHE_HOME="${HOME}/settings/cache"
 export  XDG_STATE_HOME="${HOME}/settings/state"
 export XDG_RUNTIME_DIR="${HOME}/settings/.runtime"
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
+# 2017-10-11 consider disabling disk cache for these
+export CUDA_CACHE_PATH="${XDG_CACHE_HOME}/nv/ComputeCache"
 
 # Allow access to our home-local binary, avoid prepending if LVL > 1
 if [ $SHLVL -eq 1 ]; then

@@ -121,8 +121,8 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTTIMEFORMAT="%F %H:%M≀%S "
 # don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
-export HISTCONTROL=ignoredups:ignorespace
+# 2018-10-17 force erasure of previous duplicates (ignoredups only looks at last command run)
+export HISTCONTROL=ignoredups:ignorespace:erasedups
 # append to the history file, don't overwrite it
 shopt -s histappend
 

@@ -111,7 +111,10 @@ export SDL_GAMECONTROLLERCONFIG="030000004c050000c405000011010000,Sony DualShock
 function lq { ls -Q1 "$@" | tr "\n" " " ; }
 
 # 2014-07-01 make sure to retain all history, because we have >1 shell from http://ss64.com/bash/shopt.html
-export PROMPT_COMMAND="history -a"
+# 2018-10-17 put pwd into title, help disambiguate multiple windows
+export PROMPT_COMMAND='history -a; echo -ne "\033]0;joran:${PWD/$HOME/\~}\007"'
+#
+# 2018-10-17 look into `readonly` builtin for some envvars
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=10000

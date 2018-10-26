@@ -112,8 +112,8 @@ function lq { ls -Q1 "$@" | tr "\n" " " ; }
 
 # 2014-07-01 make sure to retain all history, because we have >1 shell from http://ss64.com/bash/shopt.html
 # 2018-10-17 put pwd into title, help disambiguate multiple windows
-export PROMPT_COMMAND='history -a; echo -ne "\033]0;joran:${PWD/$HOME/\~}\007"'
-#
+export PROMPT_COMMAND='history -a; echo -ne "\033]0;$(hostname -s):${PWD/$HOME/\~}\007"'
+
 # 2018-10-17 look into `readonly` builtin for some envvars
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)

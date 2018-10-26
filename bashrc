@@ -234,7 +234,7 @@ export GITPS1='$(__git_ps1 "±:%s")'
 
 # 2011-02-10 http://stackoverflow.com/questions/4133904/ps1-line-with-git-current-branch-and-colors escape with []
 # 2013-09-08 s/>/❯/g
-export PS1="\[\e[0;32m\]\u\[\e[m\]@\h \w \[\e[0;36m\]${GITPS1}\[\e[m\]❯ "
+export PS1="\[\e[2;92m\]\u\[\e[m\]\[\e[1m\]\[\e[2;37m\]@\[\e[m\]\[\e[1m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[0m\] \[\e[0;36m\]${GITPS1}\[\e[m\]❯ "
 
 # vim is our <3
 export EDITOR="/usr/bin/vim"

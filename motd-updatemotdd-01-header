@@ -1,0 +1,31 @@
+#!/bin/sh
+# 2018-10-26 johndrinkwater create a motd header for our collection of machines
+
+[ -r /etc/lsb-release ] && . /etc/lsb-release
+
+if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
+	# Fall back to using the very slow lsb_release utility
+	DISTRIB_DESCRIPTION=$(lsb_release -s -d)
+fi
+
+# Put your personal info/greeting here, it will centre‐align in the box below
+MESSAGE=""
+MESSAGECLEAN=$(echo "$MESSAGE" | ansi2txt )
+SHORTHOST=$(hostname -s)
+MOSTDOMAIN=$(hostname | sed "s/${SHORTHOST}//")
+MOTDWIDTH=48
+SHORTHOSTPAD=$(( 20 - ${#SHORTHOST} ))
+MOSTDOMAINPAD=$(( 28 - ${#MOSTDOMAIN} ))
+MESSAGEPADL=$(( ( ${MOTDWIDTH} - ${#MESSAGECLEAN} ) / 2 ))
+MESSAGEPADR=$(( ${MOTDWIDTH} - ${MESSAGEPADL} - ${#MESSAGECLEAN} ))
+
+# 2018-10-27 Though \e is nicer for OSC, older Ubuntus do not understand it, so use \033
+printf "\033[2;37;40m%${MOTDWIDTH}s\033[0m\n" ""
+printf "\033[2;37;40m%${MESSAGEPADL}s${MESSAGE}\033[2;37;40m%${MESSAGEPADR}s\033[0m\n" " " " "
+printf "\033[2;37;40m%${SHORTHOSTPAD}s\033[0m\033[1;97;40m%s\033[1;32m%s\033[0m\033[2;37;40m%${MOSTDOMAINPAD}s\033[0m\n" " " "$SHORTHOST" "$MOSTDOMAIN" " "
+printf "\033[2;37;40m%${MOTDWIDTH}s\033[0m\n" ""
+printf "\n"
+printf " Running %s\n" "$DISTRIB_DESCRIPTION"
+printf "\n"
+printf " If you know you shouldn’t be here, leave \033[1mNOW\033[0m.\n"
+# printf " Please.\n"

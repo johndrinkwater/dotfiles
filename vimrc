@@ -160,7 +160,7 @@ let g:airline_symbols.linenr    = '⭡'
 set directory=~/settings/cache/vim,.,/tmp
 set backupdir=~/settings/cache/vim,.,/tmp
 set nobackup       " no backup files
-" set noswapfile     " use swap files
+set noswapfile     " use swap files
 
 " VIM + VIMINIT set in our bash, do we need to touch runtimepath, MYVIMRC?
 let g:netrw_home='~/settings/cache/vim/'

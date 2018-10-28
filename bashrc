@@ -261,7 +261,8 @@ alias mkdir='mkdir -p'
 # 2018-10-28 Hide snap mounts, that are using squashfs
 alias df='df -Hx tmpfs -x devtmpfs -x squashfs'
 # 2015-06-08 Do the same with mount, hide ~30 lines o crap
-alias mount='mount -t notmpfs,nocgroup,nodebugfs,nomqueue,nopstore,nosecurityfs,nohugetlbfs,nofusectl,nodevpts,nodevtmpfs,nofuse.gvfsd-fuse,noautofs,nosysfs,noproc'
+# 2018-10-28 Update for newer systems, hide ~35 lines o crap
+alias mount='mount -t notmpfs,nocgroup,nocgroup2,noconfigfs,nobinfmt_misc,nodebugfs,nosquashfs,nomqueue,nopstore,nosecurityfs,nohugetlbfs,nofusectl,nodevpts,nodevtmpfs,nofuse.gvfsd-fuse,nofuse.gvfs-fuse-daemon,noautofs,nosysfs,noproc'
 # 2016-02-08 … and prevent spurious warnings from lsof due to gvfs + tracefs (RUNTIME for sudo, tracing for user)
 # 2016-02-19 this causes noise in `script`, so disable for now
 # alias lsof='lsof -e $XDG_RUNTIME_DIR/gvfs -e /sys/kernel/debug/tracing'

@@ -2,10 +2,7 @@ set nocompatible
 " 2015-06-09 because it chokes soo much
 
 set guifont=DejaVu\ Sans\ Mono\ 8
-set noexpandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=4 tabstop=4 noexpandtab
 
 " 2015-07-25 keep 3 lines away from our cursor onscreen at all times
 set scrolloff=3

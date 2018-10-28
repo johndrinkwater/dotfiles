@@ -131,7 +131,8 @@ shopt -s histappend
 
 # 2015-06-09 ask our pager not to make ~/.lesshst
 export LESSHISTFILE="-"
-export LESS="-iFRSX"
+# 2018-10-28 git pager usage was breaking on emoji, reread manual and this needed to be _r_
+export LESS="-iFrSX"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.

@@ -11,9 +11,11 @@ export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 export CUDA_CACHE_PATH="${XDG_CACHE_HOME}/nv/ComputeCache"
 
 # Allow access to our home-local binary, avoid prepending if LVL > 1
-if [ $SHLVL -eq 1 ]; then
-	export PATH="${HOME}/bin:${PATH}"
-fi
+# 2012-07-02 added for android
+[[ :"$PATH": != *:${HOME}/code/android-sdk/tools:* ]]			&& PATH="${HOME}/code/android-sdk/tools:$PATH"
+[[ :"$PATH": != *:${HOME}/code/android-sdk/platform-tools:* ]]	&& PATH="${HOME}/code/android-sdk/platform-tools:$PATH"
+[[ :"$PATH": != *:${HOME}/.cargo/bin:* ]]						&& PATH="${HOME}/.cargo/bin:$PATH"
+[[ :"$PATH": != *:${HOME}/bin:* ]]								&& PATH="${HOME}/bin:$PATH"
 
 # 2015-06-26 remind our system we are British
 LANGUAGE=en_GB:en
@@ -106,6 +108,9 @@ export SDL_GAMECONTROLLERCONFIG="030000004c050000c405000011010000,Sony DualShock
 
 # 2017-11-15 move our ~/.scummvmrc to XDG location, and relocate save files
 alias scummvm="scummvm --config=~/settings/config/scummvm/config --savepath=~/settings/data/scummvm"
+
+# make sure that PATH is exported before script ends
+export PATH
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -277,11 +282,6 @@ alias h='history'
 # alias httpdhere="python -m SimpleHTTPServer"
 alias httpdhere="php -S localhost:4000 &"
 alias httpdhereheadless="php -S localhost:4000 > httpd.log 2> httpd.err < /dev/null &"
-
-# 2012-07-02 added for android
-if [ $SHLVL -eq 1 ]; then
-	export PATH="${PATH}:${HOME}/code/android-sdk/platform-tools:${HOME}/code/android-sdk/tools"
-fi
 
 # 2015-08-17 wanting to make `script` output cleaner, so unset EDITOR
 if [ $SHLVL -gt 1 ]; then

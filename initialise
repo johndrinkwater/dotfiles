@@ -1,0 +1,123 @@
+#!/bin/bash
+# johndrinkwater.name dotfiles init script; nothing special, hope it breaks nothing if you try it
+
+# this is the initial version, to boot‐strap a new machine, before logging out
+# and having the install just work™
+# XXX it doesn’t replace distro installed bashrc yet, that will be an update or
+# two in the future, once I thoroughly review my current install…
+
+if [ -f "${HOME}/settings/dotfiles-setup-done" ]
+then
+    exit 1
+fi
+
+mkdir -p "${HOME}/settings"
+mkdir -p "${HOME}/bin"
+# XXX ln dotfiles/bin → ~/bin
+# XXX cp dotfiles/fonts → font location
+
+mkdir -p "${HOME}/code"
+
+  XDG_DATA_HOME="${HOME}/settings/data"
+if [ -d "${HOME}/.local/share" ]
+then
+    mv "${HOME}/.local/share" "${XDG_DATA_HOME}"
+else
+    mkdir -p "${XDG_DATA_HOME}"
+fi
+
+XDG_CONFIG_HOME="${HOME}/settings/config"
+if [ -d "${HOME}/.config" ]
+then
+    mv "${HOME}/.config" "${XDG_CONFIG_HOME}"
+else
+    mkdir -p "${XDG_CONFIG_HOME}"
+fi
+
+XDG_CACHE_HOME="${HOME}/settings/cache"
+if [ -d "${HOME}/.cache" ]
+then
+    mv "${HOME}/.cache" "${XDG_CACHE_HOME}"
+else
+    mkdir -p "${XDG_CACHE_HOME}"
+fi
+
+# Can make without a move, because these are ephemeral
+mkdir -p "${HOME}/settings/.runtime"
+mkdir -p "${HOME}/settings/state"
+
+# XXX user dirs
+
+# nv shader+compute cache
+mkdir -p "${XDG_CACHE_HOME}/nv/ComputeCache"
+
+# make and copy vim into position
+mkdir -p										"${XDG_CACHE_HOME}/vim"
+if [ -f "${HOME}/.viminfo" ]
+then
+    mv "${HOME}/.viminfo" "${XDG_CACHE_HOME}/vim/viminfo"
+fi
+mkdir -p										"${XDG_CONFIG_HOME}/vim"
+ln -sf "${HOME}/code/dotfiles/vimrc"			"${XDG_CONFIG_HOME}/vim/vimrc"
+# XXX finish vim setup (need to install ext, link to system installed ext)
+
+mkdir -p "${XDG_CONFIG_HOME}/dvdcss"
+mkdir -p "${XDG_CONFIG_HOME}/gimp"
+mkdir -p "${XDG_CONFIG_HOME}/lynx"
+mkdir -p "${XDG_CONFIG_HOME}/mplayer"
+mkdir -p "${XDG_CONFIG_HOME}/scummvm"
+mkdir -p "${XDG_CONFIG_HOME}/task"
+mkdir -p   "${XDG_DATA_HOME}/scummvm"
+mkdir -p   "${XDG_DATA_HOME}/wine"
+
+# repo tools
+mkdir -p "${XDG_CONFIG_HOME}/subversion"
+mkdir -p "${XDG_CACHE_HOME}/bazaar"
+
+# crown jewels
+mkdir -p "${HOME}/settings/keys"
+mkdir -p "${HOME}/settings/pass"
+
+# Bash
+mkdir -p "${XDG_CONFIG_HOME}/bash"
+touch    "${XDG_CONFIG_HOME}/bash/history"
+if [ -f "${HOME}/.lesshst" ]
+then
+    rm "${HOME}/.lesshst"
+fi
+
+# python3
+mkdir -p										"${XDG_CONFIG_HOME}/python"
+ln -sf "${HOME}/code/dotfiles/python_history"	"${XDG_CONFIG_HOME}/python/python_history"
+
+# ssh
+mkdir -p "${XDG_CONFIG_HOME}/ssh"
+ln -sf "${HOME}/code/dotfiles/sshconfig" "${XDG_CONFIG_HOME}/ssh/config"
+# XXX make "${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa"
+
+# gdb
+mkdir -p										"${XDG_CONFIG_HOME}/gdb"
+ln -sf "${HOME}/code/dotfiles/gdbinit"			"${XDG_CONFIG_HOME}/gdb/gdbinit"
+
+# XXX git
+
+# XXX xface
+
+# XXX gitk tweaks
+
+# XXX gimprc
+
+# XXX lynxrc
+
+# XXX tmux
+
+# motd
+# ln header into /etc/update-motd.d/
+SHORTHOST=$(hostname -s)
+cp -n "${HOME}/code/dotfiles/motd-updatemotdd-01-header" "${HOME}/code/dotfiles/motd-${SHORTHOST}-header"
+echo "Permission to create /etc/update-motd.d/01-${SHORTHOST}-header symlink to "${HOME}/code/dotfiles/motd-${SHORTHOST}-header
+sudo ln -s "${HOME}/code/dotfiles/motd-${SHORTHOST}-header" "/etc/update-motd.d/01-${SHORTHOST}-header"
+
+# Prevent reruns
+date --iso-8601=s > "${HOME}/settings/dotfiles-setup-done"
+

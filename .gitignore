@@ -1,0 +1,2 @@
+# 2018-11-05 our initialise script creates a motd-`hostname`-header file, custom for the machine
+motd-[!-]*-header

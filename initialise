@@ -68,7 +68,7 @@ mkdir -p "${XDG_CACHE_HOME}/nv/ComputeCache"
 mkdir -p										"${XDG_CACHE_HOME}/vim"
 if [ -f "${HOME}/.viminfo" ]
 then
-    mv "${HOME}/.viminfo" "${XDG_CACHE_HOME}/vim/viminfo"
+    mv -n "${HOME}/.viminfo" "${XDG_CACHE_HOME}/vim/viminfo"
 fi
 mkdir -p										"${XDG_CONFIG_HOME}/vim"
 ln -sf "${HOME}/code/dotfiles/vimrc"			"${XDG_CONFIG_HOME}/vim/vimrc"
@@ -88,12 +88,31 @@ mkdir -p "${XDG_CONFIG_HOME}/subversion"
 mkdir -p "${XDG_CACHE_HOME}/bazaar"
 
 # crown jewels
-mkdir -p "${HOME}/settings/keys"
 mkdir -p "${HOME}/settings/pass"
+# gnupg
+if [ -d "${HOME}/.gnupg" ]
+then
+	mv -n "${HOME}/.gnupg" "${HOME}/settings/keys"
+else
+	mkdir -p "${HOME}/settings/keys"
+fi
 
 # Bash
 mkdir -p "${XDG_CONFIG_HOME}/bash"
-touch    "${XDG_CONFIG_HOME}/bash/history"
+mkdir -p "${XDG_CONFIG_HOME}/bash/initial"
+if [ -e "${HOME}/.bash_history" ]
+then
+	mv -n "${HOME}/.bash_history" "${XDG_CONFIG_HOME}/bash/history"
+else
+	touch "${XDG_CONFIG_HOME}/bash/history"
+fi
+if [ -e "${HOME}/.bashrc" ]
+then
+	mv -n "${HOME}/.bashrc" "${XDG_CONFIG_HOME}/bash/initial/$(date --iso-8601).bashrc"
+fi
+ln -sf "${HOME}/code/dotfiles/bashrc"			"${HOME}/.bashrc"
+
+# less
 if [ -f "${HOME}/.lesshst" ]
 then
     rm "${HOME}/.lesshst"
@@ -120,8 +139,6 @@ cp -n  "${HOME}/code/dotfiles/gitk"				"${XDG_CONFIG_HOME}/git/gitk"
 ln -sf "${HOME}/code/dotfiles/bin/git-outgoing"	"${BINHOME}/git-outgoing"
 ln -sf "${HOME}/code/dotfiles/bin/git-working-history"	"${BINHOME}/git-working-history"
 
-# XXX xface
-
 # XXX gitk tweaks
 
 # XXX gimprc
@@ -129,6 +146,12 @@ ln -sf "${HOME}/code/dotfiles/bin/git-working-history"	"${BINHOME}/git-working-h
 # XXX lynxrc
 
 # XXX tmux
+
+# .signature
+ln -sf "${HOME}/code/dotfiles/signature"		"${HOME}/.signature"
+
+# .face
+ln -sf "${HOME}/code/dotfiles/face"				"${HOME}/.face"
 
 # motd
 # ln header into /etc/update-motd.d/

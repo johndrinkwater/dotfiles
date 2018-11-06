@@ -134,6 +134,12 @@ export HISTCONTROL=ignoredups:ignorespace:erasedups
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# 2018-10-06 git tui interfaces don’t obey pager (obviously), set our tabs in term
+# advice sought from https://stackoverflow.com/a/20453925/611349
+TABWIDTH=4
+tabs -${TABWIDTH}
+tabs 1$(for i in {0..40}; do echo -n ",+${TABWIDTH}"; done)
+
 # 2015-06-09 ask our pager not to make ~/.lesshst
 export LESSHISTFILE="-"
 # 2018-10-28 git pager usage was breaking on emoji, reread manual and this needed to be _r_

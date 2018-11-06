@@ -8,6 +8,18 @@
 
 if [ -f "${HOME}/settings/dotfiles-setup-done" ]
 then
+	echo -n "Dotfiles setup was already run on "
+	cat "${HOME}/settings/dotfiles-setup-done"
+	echo "Remove \`${HOME}/settings/dotfiles-setup-done\` to rerun."
+    exit 1
+fi
+
+# Header guard for new systems that have pretty, and not a full, static one.
+HOST=$(hostname)
+SHORTHOST=$(hostname -s)
+if [ "$HOST" == "$SHORTHOST" ]
+then
+	echo "‘hostname’ has not been fully set."
     exit 1
 fi
 
@@ -113,7 +125,6 @@ ln -sf "${HOME}/code/dotfiles/gdbinit"			"${XDG_CONFIG_HOME}/gdb/gdbinit"
 
 # motd
 # ln header into /etc/update-motd.d/
-SHORTHOST=$(hostname -s)
 cp -n "${HOME}/code/dotfiles/motd-updatemotdd-01-header" "${HOME}/code/dotfiles/motd-${SHORTHOST}-header"
 echo "Permission to create /etc/update-motd.d/01-${SHORTHOST}-header symlink to "${HOME}/code/dotfiles/motd-${SHORTHOST}-header
 sudo ln -s "${HOME}/code/dotfiles/motd-${SHORTHOST}-header" "/etc/update-motd.d/01-${SHORTHOST}-header"

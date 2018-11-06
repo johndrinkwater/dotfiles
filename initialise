@@ -25,6 +25,7 @@ fi
 
 mkdir -p "${HOME}/settings"
 mkdir -p "${HOME}/bin"
+BINHOME="${HOME}/bin"
 # XXX ln dotfiles/bin → ~/bin
 # XXX cp dotfiles/fonts → font location
 
@@ -111,7 +112,13 @@ ln -sf "${HOME}/code/dotfiles/sshconfig" "${XDG_CONFIG_HOME}/ssh/config"
 mkdir -p										"${XDG_CONFIG_HOME}/gdb"
 ln -sf "${HOME}/code/dotfiles/gdbinit"			"${XDG_CONFIG_HOME}/gdb/gdbinit"
 
-# XXX git
+# git
+mkdir -p "${XDG_CONFIG_HOME}/git"
+ln -sf "${HOME}/code/dotfiles/gitconfig"		"${XDG_CONFIG_HOME}/git/config"
+ln -sf "${HOME}/code/dotfiles/gitignore"		"${XDG_CONFIG_HOME}/git/ignore"
+cp -n  "${HOME}/code/dotfiles/gitk"				"${XDG_CONFIG_HOME}/git/gitk"
+ln -sf "${HOME}/code/dotfiles/bin/git-outgoing"	"${BINHOME}/git-outgoing"
+ln -sf "${HOME}/code/dotfiles/bin/git-working-history"	"${BINHOME}/git-working-history"
 
 # XXX xface
 

@@ -57,6 +57,7 @@ export HISTFILE="${XDG_CONFIG_HOME}/bash/history"
 
 # 2016-02-24 Tell Python politely to not make ~/.python_history by… monkey patching that code out
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/python_history"
+alias pip="pip --log=${XDG_STATE_HOME}/pip/pip.log"
 
 # 2016-01-02 attempt to restore unicode composition via ctrl+shift+u
 unset GTK_IM_MODULE

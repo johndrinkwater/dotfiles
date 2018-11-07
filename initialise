@@ -56,8 +56,10 @@ else
 fi
 
 # Can make without a move, because these are ephemeral
-mkdir -p "${HOME}/settings/.runtime"
-mkdir -p "${HOME}/settings/state"
+XDG_RUNTIME_DIR="${HOME}/settings/.runtime"
+mkdir -p "${XDG_RUNTIME_DIR}"
+XDG_STATE_HOME="${HOME}/settings/state"
+mkdir -p "${XDG_STATE_HOME}"
 
 # XXX user dirs
 
@@ -121,6 +123,7 @@ fi
 # python3
 mkdir -p										"${XDG_CONFIG_HOME}/python"
 ln -sf "${HOME}/code/dotfiles/python_history"	"${XDG_CONFIG_HOME}/python/python_history"
+mkdir -p										"${XDG_STATE_HOME}/pip"
 
 # ssh
 if [ -d "${HOME}/.ssh" ]

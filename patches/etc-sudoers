@@ -1,0 +1,10 @@
+--- sudoers	2018-10-30 15:42:20.560290232 +0000
++++ sudoers	2018-10-30 15:42:25.508223099 +0000
+@@ -7,6 +7,7 @@
+ # See the man page for details on how to write a sudoers file.
+ #
+ Defaults	env_reset
++Defaults	env_keep -= "HOME"
+ Defaults	mail_badpass
+ 
+ Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"

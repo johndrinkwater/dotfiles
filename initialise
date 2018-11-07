@@ -84,6 +84,9 @@ then
     mv -n "${HOME}/.viminfo" "${XDG_CACHE_HOME}/vim/viminfo"
 fi
 mkdir -p										"${XDG_CONFIG_HOME}/vim"
+# Yes, these two lines are scary.
+ln -sf /usr/share/vim/vim[0-9]*					"${XDG_CONFIG_HOME}/vim/"
+sudo ln -sf /usr/share/vim/vim[0-9]*   			"/usr/share/vim/vimcurrent"
 ln -sf "${HOME}/code/dotfiles/vimrc"			"${XDG_CONFIG_HOME}/vim/vimrc"
 # XXX finish vim setup (need to install ext, link to system installed ext)
 

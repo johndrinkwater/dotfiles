@@ -1,0 +1,18 @@
+An odd collection of dotfiles and scripts collected over years…
+Not the best curation, but my creation.
+
+Eventually I wish to shape this into something much better, with aliases
+outside of bashrc, with environment variables set in a pam-accessible non-bash
+script too.
+
+scripts under ./bin may have been sourced elsewhere, attributions are contained
+within.
+files under ./patches are for system file tweaking, like `etc-sudoers`, but
+wont be automatically applied during install because they can be destructive.
+
+`initialise` should be run just after git cloning, on a pretty fresh install.
+For best results, do this in a terminal session rather than GUI, or you’ll be
+working to tidy duplicate XDG locations up. The tool should avoid being
+destructive, and will refuse to run twice, but accidents can and may happen, so
+be aware of that. `sudo` is used once to copy a motd script into a system
+location, that is all.

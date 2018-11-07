@@ -153,7 +153,11 @@ shopt -s checkwinsize
 # 2015-08-05 restrict terminal support for ^S so I stop accidentally breaking
 # irssi inside tmux
 stty -ixon
+stty -ixoff
 stty stop undef
+
+# 2018-11-07 Inform tty input chars are UTF-8 encoded (why is this still not default?)
+stty iutf8
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

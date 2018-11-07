@@ -43,7 +43,7 @@ export WINEPREFIX="${XDG_DATA_HOME}/wine"
 
 # repo tools
 export SUBVERSION_HOME="${XDG_CONFIG_HOME}/subversion"
-export BZR_LOG="${XDG_CACHE_HOME}/bazaar/log"
+export BZR_LOG="${XDG_STATE_HOME}/bazaar/log"
 
 # crown jewels
 export GNUPGHOME="${HOME}/settings/keys"

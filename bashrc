@@ -10,12 +10,16 @@ export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 # 2017-10-11 consider disabling disk cache for these
 export CUDA_CACHE_PATH="${XDG_CACHE_HOME}/nv/ComputeCache"
 
-# Allow access to our home-local binary, avoid prepending if LVL > 1
+# 2018-10-09 add to PATH, remove previous entries. Fails for rightmost dir, but thats ok ¯\_(ツ)_/¯
+function pathprepend () {
+	PATH=$1:${PATH//$1:/}
+}
 # 2012-07-02 added for android
-[[ :"$PATH": != *:${HOME}/code/android-sdk/tools:* ]]			&& PATH="${HOME}/code/android-sdk/tools:$PATH"
-[[ :"$PATH": != *:${HOME}/code/android-sdk/platform-tools:* ]]	&& PATH="${HOME}/code/android-sdk/platform-tools:$PATH"
-[[ :"$PATH": != *:${HOME}/.cargo/bin:* ]]						&& PATH="${HOME}/.cargo/bin:$PATH"
-[[ :"$PATH": != *:${HOME}/bin:* ]]								&& PATH="${HOME}/bin:$PATH"
+pathprepend "${HOME}/code/android-sdk/tools"
+pathprepend "${HOME}/code/android-sdk/platform-tools"
+# Allow access to our home-local binaries
+pathprepend "${HOME}/.cargo/bin"
+pathprepend "${HOME}/bin"
 
 # 2015-06-26 remind our system we are British
 LANGUAGE=en_GB:en
@@ -310,18 +314,19 @@ case "$(uname -s)" in
 
 	# 2015-05-19 add homebrew to our PATH, for OSX
 	# brew --prefix coreutils
-	export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+	pathprepend "/usr/local/opt/coreutils/libexec/gnubin"
 	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
 	# 2015-05-20 add find to PATH; hope I don't have to do this for each util
-	export PATH="/usr/local/opt/findutils/bin:${PATH}"
+	pathprepend "/usr/local/opt/findutils/bin"
 
 	# 2015-05-26 put usr local binaries before system ones to expose brew
-	export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
+	pathprepend "/usr/local/bin:/usr/local/sbin"
 
 	# 2015-05-30 expose php bins, like phpdoc
 	# brew --prefix php54
-	export PATH="/usr/local/opt/php54/bin:${PATH}"
+	pathprepend "/usr/local/opt/php54/bin"
+	export PATH
 
 	;;
 	Linux)

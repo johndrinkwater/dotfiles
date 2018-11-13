@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# 2018-11-13 johndrinkwater, quick script to aide in making better colour
+# choices in the term outputs a somewhat clear table of colours and their
+# values
+clear
+
+# Standard colours
+printf "\x1b[1;97m\x1b[48;5;0m  %2d  " 0
+for i in {1..7} ; do
+    printf "\x1b[1;97m\x1b[48;5;${i}m %2d  " $i
+done
+
+# High intensity colours
+for i in {8..15} ; do
+    printf "\x1b[2;30m\x1b[48;5;${i}m  %2d  " $i
+done
+printf " \x1b[0m\n"
+
+# … colours
+for i in $( seq 16 36 231 ) ; do
+	for j in $( seq $i $(( i + 17 )) ) ; do
+		printf "\x1b[1;97m\x1b[48;5;${j}m %3d " $j
+	done
+	printf "\x1b[0m\n"
+done
+
+for i in $( seq 34 36 231 ) ; do
+	for j in $( seq $i $(( i + 17 )) ) ; do
+		printf "\x1b[2;30m\x1b[48;5;${j}m %3d " $j
+	done
+	printf "\x1b[0m\n"
+done
+
+# Greyscale colours
+# Black to grey
+printf "\x1b[1;97m\x1b[48;5;232m     %3d  " 232
+for i in {233..243} ; do
+    printf "\x1b[1;97m\x1b[48;5;${i}m  %3d  " $i
+done
+printf "   \x1b[0m\n"
+
+# Grey to white
+printf "\x1b[2;30m\x1b[48;5;244m     %3d  " 244
+for i in {245..255} ; do
+    printf "\x1b[2;30m\x1b[48;5;${i}m  %3d  " $i
+done
+printf "   \x1b[0m\n"
+
+# CSI is typically ESC[, or better put: [
+printf "To reproduce, use \x1b[38;5;46mCSI38;5;\x1b[4m46\x1b[24mm\x1b[0m for foreground, \x1b[2;30m\x1b[48;5;46mCSI48;5;\x1b[4m46\x1b[24mm\x1b[0m for background.\n"
+# Legacy requires further lookup, so I don’t think this line is useful… it is
+# just a reminder
+printf "For legacy, use \x1b[;92mCSI;\x1b[4m92\x1b[24mm\x1b[0m for foreground, \x1b[30;102mCSI;\x1b[4m102\x1b[24mm\x1b[0m for background.\n"
+# RGB is awesome, but… we’d be assigning process/env memory to skip a LUT that
+# will already be paged
+printf "For RGB, use \x1b[38;2;0;255;0mCSI38;2;\x1b[4m0;255;0\x1b[24mm\x1b[0m for foreground, \x1b[2;30m\x1b[48;2;0;255;0mCSI48;2;\x1b[4m0;255;0\x1b[24mm\x1b[0m for background.\n"
+

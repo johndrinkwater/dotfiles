@@ -104,6 +104,11 @@ mkdir -p "${XDG_CONFIG_HOME}/subversion"
 mkdir -p "${XDG_CONFIG_HOME}/bazaar"
 mkdir -p "${XDG_STATE_HOME}/bazaar"
 
+# Rust
+mkdir -p "${XDG_DATA_HOME}/cargo/bin"
+mkdir -p "${XDG_DATA_HOME}/rustup"
+ln -sf "${HOME}/code/dotfiles/cargoconfig"		"${XDG_DATA_HOME}/cargo/config"
+
 # crown jewels
 mkdir -p "${HOME}/settings/pass"
 # gnupg

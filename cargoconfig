@@ -1,0 +1,21 @@
+# Rust’s cargo config, with a few minor changes
+[cargo-new]
+vcs = "git"
+
+[registry]
+# XXX you do not want to commit this token
+token = ""
+
+[build]
+incremental = true
+
+[term]
+verbose = true
+color = "auto"
+
+[alias]
+br = "build --release"
+tr = "test --release"
+rr = "run --release"
+docu = "doc --no-deps --all-features"
+# alias waiting for bug fix: rustdoc --no-defaults --passes "collapse-docs" --passes "unindent-comments"

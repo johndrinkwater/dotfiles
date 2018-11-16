@@ -23,6 +23,38 @@ then
     exit 1
 fi
 
+# Create $2 if $1 exists, or move $1 to $2
+function moveorcreatedir () {
+	local newloc=$2
+	local oldloc=$1
+	if [ -d "${oldloc}" ]
+	then
+		mv -n "${oldloc}" "${newloc}"
+	else
+		mkdir -p "${newloc}"
+	fi
+}
+
+# Move $1 to $2, if exists
+function movefile () {
+	local newloc=$2
+	local oldloc=$1
+	if [ -e "${oldloc}" ]
+	then
+		mv -n "${oldloc}" "${newloc}"
+	fi
+}
+
+# Copy $1 to $2, if exists
+function copyfile () {
+	local newloc=$2
+	local oldloc=$1
+	if [ -e "${oldloc}" ]
+	then
+		cp -n "${oldloc}" "${newloc}"
+	fi
+}
+
 mkdir -p "${HOME}/settings"
 mkdir -p "${HOME}/bin"
 BINHOME="${HOME}/bin"
@@ -32,28 +64,13 @@ BINHOME="${HOME}/bin"
 mkdir -p "${HOME}/code"
 
   XDG_DATA_HOME="${HOME}/settings/data"
-if [ -d "${HOME}/.local/share" ]
-then
-    mv "${HOME}/.local/share" "${XDG_DATA_HOME}"
-else
-    mkdir -p "${XDG_DATA_HOME}"
-fi
+moveorcreatedir	"${HOME}/.local/share"		"${XDG_DATA_HOME}"
 
 XDG_CONFIG_HOME="${HOME}/settings/config"
-if [ -d "${HOME}/.config" ]
-then
-    mv "${HOME}/.config" "${XDG_CONFIG_HOME}"
-else
-    mkdir -p "${XDG_CONFIG_HOME}"
-fi
+moveorcreatedir	"${HOME}/.config"			"${XDG_CONFIG_HOME}"
 
 XDG_CACHE_HOME="${HOME}/settings/cache"
-if [ -d "${HOME}/.cache" ]
-then
-    mv "${HOME}/.cache" "${XDG_CACHE_HOME}"
-else
-    mkdir -p "${XDG_CACHE_HOME}"
-fi
+moveorcreatedir	"${HOME}/.cache"			"${XDG_CACHE_HOME}"
 
 # Can make without a move, because these are ephemeral
 XDG_RUNTIME_DIR="${HOME}/settings/.runtime"
@@ -105,33 +122,23 @@ mkdir -p "${XDG_CONFIG_HOME}/bazaar"
 mkdir -p "${XDG_STATE_HOME}/bazaar"
 
 # Rust
-mkdir -p "${XDG_DATA_HOME}/cargo/bin"
-mkdir -p "${XDG_DATA_HOME}/rustup"
+moveorcreatedir	"${HOME}/.cargo"				"${XDG_DATA_HOME}/cargo"
+moveorcreatedir	"${HOME}/.rustup"				"${XDG_DATA_HOME}/rustup"
+# remove symlink
+rm				"${HOME}/.multirust"
 ln -sf "${HOME}/code/dotfiles/cargoconfig"		"${XDG_DATA_HOME}/cargo/config"
 
 # crown jewels
 mkdir -p "${HOME}/settings/pass"
 # gnupg
-if [ -d "${HOME}/.gnupg" ]
-then
-	mv -n "${HOME}/.gnupg" "${HOME}/settings/keys"
-else
-	mkdir -p "${HOME}/settings/keys"
-fi
+moveorcreatedir	"${HOME}/.gnupg"				"${HOME}/settings/keys"
 
 # Bash
 mkdir -p "${XDG_CONFIG_HOME}/bash"
 mkdir -p "${XDG_CONFIG_HOME}/bash/initial"
-if [ -e "${HOME}/.bash_history" ]
-then
-	mv -n "${HOME}/.bash_history" "${XDG_CONFIG_HOME}/bash/history"
-else
-	touch "${XDG_CONFIG_HOME}/bash/history"
-fi
-if [ -e "${HOME}/.bashrc" ]
-then
-	mv -n "${HOME}/.bashrc" "${XDG_CONFIG_HOME}/bash/initial/$(date --iso-8601).bashrc"
-fi
+movefile "${HOME}/.bash_history" 				"${XDG_CONFIG_HOME}/bash/history"
+movefile "${HOME}/.bashrc"						"${XDG_CONFIG_HOME}/bash/initial/$(date --iso-8601).bashrc"
+copyfile "${HOME}/.bash_logout"					"${XDG_CONFIG_HOME}/bash/initial/$(date --iso-8601).bashlogout"
 ln -sf "${HOME}/code/dotfiles/bashrc"			"${HOME}/.bashrc"
 
 # less
@@ -146,12 +153,7 @@ ln -sf "${HOME}/code/dotfiles/python_history"	"${XDG_CONFIG_HOME}/python/python_
 mkdir -p										"${XDG_STATE_HOME}/pip"
 
 # ssh
-if [ -d "${HOME}/.ssh" ]
-then
-	mv "${HOME}/.ssh" "${XDG_CONFIG_HOME}/ssh"
-else
-	mkdir -p "${XDG_CONFIG_HOME}/ssh"
-fi
+moveorcreatedir	"${HOME}/.ssh"					"${XDG_CONFIG_HOME}/ssh"
 ln -sf "${HOME}/code/dotfiles/sshconfig" "${XDG_CONFIG_HOME}/ssh/config"
 # XXX make "${XDG_CONFIG_HOME}/ssh/${HOSTNAME}_rsa"
 

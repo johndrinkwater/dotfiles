@@ -183,6 +183,9 @@ cp -n  "${HOME}/code/dotfiles/gitk"				"${XDG_CONFIG_HOME}/git/gitk"
 ln -sf "${HOME}/code/dotfiles/bin/git-outgoing"	"${BINHOME}/git-outgoing"
 ln -sf "${HOME}/code/dotfiles/bin/git-working-history"	"${BINHOME}/git-working-history"
 
+# gnome
+moveorcreatedir	"${HOME}/.gconf"				"${XDG_CONFIG_HOME}/gconf"
+
 # XXX gitk tweaks
 
 # XXX gimprc

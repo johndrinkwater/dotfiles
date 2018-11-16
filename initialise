@@ -117,6 +117,11 @@ mkdir -p "${XDG_CONFIG_HOME}/task"
 mkdir -p   "${XDG_DATA_HOME}/scummvm"
 mkdir -p   "${XDG_DATA_HOME}/wine"
 
+# Fonts
+# XXX put more of our custom fonts in repo
+moveorcreatedir	"${HOME}/.fonts"				"${XDG_DATA_HOME}/fonts"
+copyfile "${HOME}/code/dotfiles/fonts/Inconsolata-dz-Powerline.otf"	"${XDG_DATA_HOME}/fonts"
+
 # repo tools
 mkdir -p "${XDG_CONFIG_HOME}/subversion"
 mkdir -p "${XDG_CONFIG_HOME}/bazaar"

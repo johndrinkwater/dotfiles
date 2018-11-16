@@ -82,13 +82,14 @@ mkdir -p "${XDG_STATE_HOME}"
 ln -sf "${HOME}/code/dotfiles/user-dirs.dirs"	"${XDG_CONFIG_HOME}/user-dirs.dirs"
 # xdg-user-dirs-update is nowhere near useful, so:
 source "${XDG_CONFIG_HOME}/user-dirs.dirs"
-mkdir -p "${XDG_DESKTOP_DIR}"
+# XXX Before source-ing user-dir.dirs, xdg-user-dirs exposes the pre-locations
+moveorcreatedir	"${HOME}/Desktop"				"${XDG_DESKTOP_DIR}"
 mkdir -p "${XDG_DOWNLOAD_DIR}"
 mkdir -p "${XDG_TEMPLATES_DIR}"
 mkdir -p "${XDG_PUBLICSHARE_DIR}"
 mkdir -p "${XDG_DOCUMENTS_DIR}"
 mkdir -p "${XDG_MUSIC_DIR}"
-mkdir -p "${XDG_PICTURES_DIR}"
+moveorcreatedir	"${HOME}/Pictures"				"${XDG_PICTURES_DIR}"
 mkdir -p "${XDG_VIDEOS_DIR}"
 
 # nv shader+compute cache

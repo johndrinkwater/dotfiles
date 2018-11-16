@@ -161,6 +161,10 @@ ln -sf "${HOME}/code/dotfiles/sshconfig" "${XDG_CONFIG_HOME}/ssh/config"
 mkdir -p										"${XDG_CONFIG_HOME}/gdb"
 ln -sf "${HOME}/code/dotfiles/gdbinit"			"${XDG_CONFIG_HOME}/gdb/gdbinit"
 
+# wget
+mkdir -p										"${XDG_CONFIG_HOME}/wget"
+movefile "${HOME}/.wget-hsts"					"${XDG_CONFIG_HOME}/wget/wget-hsts"
+
 # git
 mkdir -p "${XDG_CONFIG_HOME}/git"
 ln -sf "${HOME}/code/dotfiles/gitconfig"		"${XDG_CONFIG_HOME}/git/config"

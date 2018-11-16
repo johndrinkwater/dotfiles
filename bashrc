@@ -101,6 +101,9 @@ alias sshfp="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no
 # 2015-06-23 move our ~/.gdbinit to XDG location
 alias gdb="gdb -nh -x ~/settings/config/gdb/gdbinit"
 
+# 2018-11-16 move our ~/.wget-hsts to XDG location
+alias wget="wget --hsts-file=~/settings/config/wget/wget-hsts"
+
 # 2016-01-31 move our ~/.java to a XDG location (or rather attempt)
 alias java="java -Duser.home=\"${XDG_DATA_HOME}/openjdk\""
 

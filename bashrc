@@ -157,6 +157,9 @@ export LESSHISTFILE="-"
 # 2018-10-28 git pager usage was breaking on emoji, reread manual and this needed to be _r_
 export LESS="-iFrSX"
 
+# 2018-11-16 ask openssl not to put ~/.rnd in ~
+export RANDFILE="${XDG_RUNTIME_DIR}/opensslrandomness"
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize

@@ -152,6 +152,9 @@ mkdir -p										"${XDG_CONFIG_HOME}/python"
 ln -sf "${HOME}/code/dotfiles/python_history"	"${XDG_CONFIG_HOME}/python/python_history"
 mkdir -p										"${XDG_STATE_HOME}/pip"
 
+# openssl
+movefile "${HOME}/.rnd"							"${XDG_RUNTIME_DIR}/opensslrandomness"
+
 # ssh
 moveorcreatedir	"${HOME}/.ssh"					"${XDG_CONFIG_HOME}/ssh"
 ln -sf "${HOME}/code/dotfiles/sshconfig" "${XDG_CONFIG_HOME}/ssh/config"

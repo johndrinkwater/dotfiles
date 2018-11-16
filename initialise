@@ -138,8 +138,9 @@ mkdir -p "${XDG_CONFIG_HOME}/bash"
 mkdir -p "${XDG_CONFIG_HOME}/bash/initial"
 movefile "${HOME}/.bash_history" 				"${XDG_CONFIG_HOME}/bash/history"
 movefile "${HOME}/.bashrc"						"${XDG_CONFIG_HOME}/bash/initial/$(date --iso-8601).bashrc"
-copyfile "${HOME}/.bash_logout"					"${XDG_CONFIG_HOME}/bash/initial/$(date --iso-8601).bashlogout"
+movefile "${HOME}/.bash_logout"					"${XDG_CONFIG_HOME}/bash/initial/$(date --iso-8601).bashlogout"
 ln -sf "${HOME}/code/dotfiles/bashrc"			"${HOME}/.bashrc"
+ln -sf "${HOME}/code/dotfiles/bashlogout"		"${HOME}/.bash_logout"
 
 # less
 if [ -f "${HOME}/.lesshst" ]

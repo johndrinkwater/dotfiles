@@ -1,0 +1,9 @@
+# ~/.bash_logout: executed by bash(1) when login shell exits.
+
+# 2018-11-06 we touch this because xauth errors on log‐in with it missing, sigh.
+touch "${HOME}/.Xauthority"
+
+# when leaving the console clear the screen to increase privacy
+if [ "$SHLVL" = 1 ]; then
+    [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
+fi

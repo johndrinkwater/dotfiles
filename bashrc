@@ -33,6 +33,12 @@ export VIMINIT=":so ${VIM}/vimrc"
 
 # Runtime cruft
 export ICEAUTHORITY="${XDG_RUNTIME_DIR}/ICEauthority"
+export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"
+if [ -e "${HOME}/.Xauthority" ]
+then
+	mv -f "${HOME}/.Xauthority" "${XAUTHORITY}" &> /dev/null
+fi
+
 # 2015-06-24 too late to avoid ~/.xsession-errors, so we edit /etc/X11/Xsession:61 to be
 # ERRFILE=$HOME/settings/cache/xsession-errors
 
